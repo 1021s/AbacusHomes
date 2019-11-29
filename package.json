@@ -1,0 +1,45 @@
+{
+  "name": "matthew-service",
+  "version": "1.0.0",
+  "description": "monthlyCost module",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build": "webpack -d --watch",
+    "server": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1021s/Matthew-service.git"
+  },
+  "author": "itsOrD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1021s/Matthew-service/issues"
+  },
+  "homepage": "https://github.com/1021s/Matthew-service#readme",
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.0.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.12",
+    "mysql": "^2.17.1",
+    "nodemon": "^2.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "request": "^2.88.0"
+  }
+}
