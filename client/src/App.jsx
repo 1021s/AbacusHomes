@@ -16,7 +16,7 @@ class App extends React.Component {
 //deconstruction
     return (
       <div>
-        React App is ready to go. Hello Lalana.
+        React App is ready to go.
       </div>
     )
   }
