@@ -1,11 +1,11 @@
-CREATE DATABASE zobinHood;
+CREATE DATABASE IF NOT EXISTS zobinHood;
 
 USE zobinHood;
 
-CREATE TABLE pricing (
+CREATE TABLE IF NOT EXISTS pricing (
 	priceid INT NOT NULL AUTO_INCREMENT,
 	price INT NOT NULL,
-	Listing_id CHAR(3) NOT NULL,
+	Listing_id CHAR(3) UNIQUE NOT NULL,
 	PRIMARY KEY ( priceid )
 );
 

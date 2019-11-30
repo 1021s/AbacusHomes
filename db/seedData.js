@@ -1,4 +1,5 @@
 const faker = require('faker');
+const db = require('./index.js');
 
 // '.seed(xxx)' ensures the same data is "randomly" generated each time
 // faker.seed(123);
@@ -39,12 +40,11 @@ const generator = () => {
   }
 };
 
-generator();
-
 module.exports = {
   // test1: test1,
   // test2: test2,
   // ff: ff,
   // pricer: pricer,
   pricingArr: pricingArr,
+  generator: generator,
 };
