@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const seedData = require('./seedData.js');
 
 const db = mysql.createConnection({
   host     : '127.0.0.1',
@@ -13,5 +14,7 @@ db.connect((err) => {
     console.log('Connected to zobinHood db!');
   }
 });
+
+
 
 module.exports = db;

@@ -1,6 +1,6 @@
 CREATE DATABASE zobinHood;
 
-USE chat;
+USE zobinHood;
 
 CREATE TABLE pricing (
 	priceid INT NOT NULL AUTO_INCREMENT,
