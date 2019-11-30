@@ -4,13 +4,13 @@ const seedData = require('./seedData.js');
 seedData.pricingArr;
 seedData.generator();
 
-const db = mysql.createConnection({
+const conn = mysql.createConnection({
   host     : '127.0.0.1',
   user     : 'root',
   database : 'zobinHood',
 });
 
-db.connect((err) => {
+conn.connect((err) => {
   if (err) {
     console.log('DB connection error: ', err);
   } else {
@@ -31,17 +31,17 @@ const buildPackage = () => {
   //   console.log('db created: ', results);
   // });
 
-  db.query('USE zobinHood', (err, results) => {
+  conn.query('USE zobinHood', (err, results) => {
     if (err) console.log(err);
     console.log('db zobinHood in use: ', results);
   });
 
-  db.query(tableCreateStr, (err, results) => {
+  conn.query(tableCreateStr, (err, results) => {
     if (err) console.log(err);
     console.log('pricing table created: ', results);
   });
 
-  db.query('TRUNCATE TABLE pricing', (err, results) => {
+  conn.query('TRUNCATE TABLE pricing', (err, results) => {
     if (err) console.log(err);
     console.log('pricing table ready for new data...', results);
   });
@@ -52,7 +52,7 @@ const buildPackage = () => {
       let l = seedData.pricingArr[i].Listing_id;
       let queryString = `INSERT INTO pricing (price, Listing_id)
         VALUES ('${p}', '${l}')`;
-      db.query(queryString, [], (err, results) => {
+      conn.query(queryString, [], (err, results) => {
         if (err) console.log(err);
       });
     }
@@ -65,5 +65,5 @@ buildPackage();
 
 module.exports = {
   buildPackage: buildPackage,
-  db: db
+  conn: conn,
 };

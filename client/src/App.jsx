@@ -1,5 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Header from './components/Header.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,15 +11,20 @@ class App extends React.Component {
 //this bindings
   }
 
-//methods
+  componentDidMount() {
+    fetch('/api/listing')
+      .then(res=>res.json)
+      .catch(err=>console.log(err))
+  }
 
   render() {
+    const { price } = this;
 //deconstruction
     return (
       <div>
-        React App is ready to go.
+        <Header price={price} />
       </div>
-    )
+    );
   }
 }
 

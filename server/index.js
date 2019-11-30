@@ -7,11 +7,13 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist')));
 
-const PORT = 8080;
+const PORT = 3000;
 
 app.route('/api/pricing/')
   .get((req, res) => {
-    db.query(`SELECT ${req.params} FROM pricing`, (err, results) => {
+    // let r = JSON.parse(req.params);
+    // console.log('...r...', r);
+    db.conn.query(`SELECT * FROM pricing`, (err, results) => {
       if (err) {
         console.log('Error with query: ', err);
         res.sendStatus(500);
@@ -22,7 +24,7 @@ app.route('/api/pricing/')
   });
 
 app.listen(PORT, () => {
-  console.log('Server for Monthly Cost React App reporting for duty!');
+  console.log(`Server for Monthly Cost React App reporting for duty via PORT: ${PORT}!`);
   // console.log('seed test number is: ', seedData.test1, seedData.test2);
   // console.log('finance faker data: ', seedData.ff);
   // console.log('house pricing: ', seedData.pricer(), seedData.pricer());
