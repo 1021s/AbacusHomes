@@ -53,29 +53,9 @@ const buildPackage = () => {
       let queryString = `INSERT INTO pricing (price, Listing_id)
         VALUES ('${p}', '${l}')`;
       db.query(queryString, [], (err, results) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(results);
-        }
+        if (err) console.log(err);
       });
     }
-    // let num = 101;
-    // while (num > 0) {
-    //   let thisPrice = seedData.pricingArr[num].price;
-    //   let thisListing = seedData.pricingArr[num].Listing_id;
-    //   let queryString = `INSERT INTO prices
-    //   values ('${thisPrice}',
-    //   '${thisListing}')`;
-    //   db.query(queryString, [], (err, results) => {
-    //     if (err) {
-    //       console.log(err);
-    //     } else {
-    //       console.log(results);
-    //     }
-    //   });
-    //   num--;
-    // }
   };
   dbSeed();
   console.log('done building/seeding db')

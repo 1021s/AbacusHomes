@@ -9,6 +9,18 @@ app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist')));
 
 const PORT = 8080;
 
+app.route('/api/pricing/')
+  .get((req, res) => {
+    db.query(`SELECT ${req.params} FROM pricing`, (err, results) => {
+      if (err) {
+        console.log('Error with query: ', err);
+        res.sendStatus(500);
+      } else {
+        res.send(results);
+      }
+    });
+  });
+
 app.listen(PORT, () => {
   console.log('Server for Monthly Cost React App reporting for duty!');
   // console.log('seed test number is: ', seedData.test1, seedData.test2);
