@@ -9,12 +9,10 @@ class App extends React.Component {
       random: '',
       price: 'loading...',
     };
-//this bindings
   }
 
   componentDidMount() {
     fetch('/api/pricing/')
-      // .then(res=>console.log(' initial fetch response: ', res))
       .then(res=>res.json())
       .then((data)=>this.setState({
         price: data[ (Math.floor(Math.random()*100)) ].price,
@@ -24,7 +22,6 @@ class App extends React.Component {
 
   render() {
     const { price } = this.state;
-//deconstruction
     return (
       <div>
         <Header price={price} />

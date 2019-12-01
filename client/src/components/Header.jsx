@@ -10,7 +10,6 @@ const Header = (props) => {
     //thousand comma
     numArr.splice(numArr.length-3, 0, ',');
     numArr.unshift('$');
-    numArr.push('.00');
     return numArr.join('');
   };
 
@@ -21,8 +20,11 @@ const Header = (props) => {
       <p align="center">
         <font color="green">
           {priceFormatter(props.price)}
-          <hr />
-          {props.price}
+        </font>
+      </p>
+      <p align="center">
+        <font size="8px">
+          Estimated monthly cost
         </font>
       </p>
     </div>
