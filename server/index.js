@@ -13,11 +13,13 @@ app.route('/api/pricing/')
   .get((req, res) => {
     // let r = JSON.parse(req.params);
     // console.log('...r...', r);
-    db.conn.query(`SELECT * FROM pricing`, (err, results) => {
+    db.conn.query(`SELECT price FROM pricing`, (err, results) => {
       if (err) {
         console.log('Error with query: ', err);
         res.sendStatus(500);
       } else {
+        console.log('results of query: ', results);
+        // console.log('JOSN.strigify(results): ', JSON.stringify(results));
         res.send(results);
       }
     });
