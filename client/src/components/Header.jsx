@@ -3,25 +3,15 @@ import React from 'react';
 const Header = (props) => {
 
   const priceFormatter = (num) => {
-    let priceInUSD = [];
     let numStr = String(num);
-    let tempArr = [...numStr];
-
-    const threeDigits = (arr, n) => {
-      let threeD = [];
-      for (let i = n; i < arr.length; i++) {
-        if (threeD.length === 3) {
-          priceInUSD.push(threeD);
-          return threeDigits(arr, n);
-        } else {
-          threeD.push(arr[i]);
-          arr.splice(i, 1);
-        }
-      }
-    };
-
-    threeDigits(tempArr, 0);
-    return '$' + priceInUSD.join(',') + '.00';
+    let numArr = [...numStr];
+    //million comma
+    if (numArr.length > 6) { numArr.splice(numArr.length-6, 0, ',') };
+    //thousand comma
+    numArr.splice(numArr.length-3, 0, ',');
+    numArr.unshift('$');
+    numArr.push('.00');
+    return numArr.join('');
   };
 
   return (
