@@ -1,24 +1,32 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Header from './components/Header.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       random: '',
+      price: 'loading...',
     };
-//this bindings
   }
 
-//methods
+  componentDidMount() {
+    fetch('/api/pricing/')
+      .then(res=>res.json())
+      .then((data)=>this.setState({
+        price: data[ (Math.floor(Math.random()*100)) ].price,
+      }))
+      .catch(err=>console.log('fetch catch engaged...', err))
+  }
 
   render() {
-//deconstruction
+    const { price } = this.state;
     return (
       <div>
-        React App is ready to go. Hello Lalana.
+        <Header price={price} />
       </div>
-    )
+    );
   }
 }
 
