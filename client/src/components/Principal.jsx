@@ -1,22 +1,32 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const Principal = (props) => {
   const { price, usdF } = props;
+
+  const Head = styled.h1`
+    background: red;
+  `
+
   return (
     <div>
-      <div>
+      <Head>
         Principal & Interest
-        <p>{usdF(Math.round(price / 12))}
+        <p>
+          {usdF(Math.round(price / 12))}
           /mo
         </p>
-      </div>
+      </Head>
       <div>
         Home price
-        <input
-          type="text"
-          id="monthlyPrice"
-          value={usdF(price)}
-        />
+        <span >
+          <label>$</label>
+          <input
+            type="text"
+            id="monthlyPrice"
+            value={usdF(price)}
+          />
+        </span>
       </div>
       <div>
         Down payment
