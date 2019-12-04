@@ -14,8 +14,8 @@ const DownPayment = (props) => {
           <GhostSymbol> $ </GhostSymbol>
           <HiddenInput
             type="text"
-            id="downPayment"
-            defaultValue={down}
+            id="down"
+            value={down}
             onChange={handleChange}
           />
         </Box>
@@ -25,8 +25,8 @@ const DownPayment = (props) => {
           {/* invalid when non pos int, or greater than 100 */}
           <HiddenInput
             type="text"
-            id="downPaymentPercent"
-            defaultValue={interest}
+            id="interest"
+            value={interest}
             onChange={handleChange}
           />
           <GhostSymbol> % </GhostSymbol>

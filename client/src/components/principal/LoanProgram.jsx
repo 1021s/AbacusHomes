@@ -31,7 +31,7 @@ const LoanProgram = (props) => {
         <Box>
           <HiddenInput
             type="text"
-            id="interest"
+            id="interestRate"
             defaultValue={interestRate}
             onChange={handleChange}
           />

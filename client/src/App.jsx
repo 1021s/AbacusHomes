@@ -69,9 +69,20 @@ class App extends React.Component {
 
   handleChange(event) {
     event.preventDefault();
-    this.setState({
-      price: Number(event.target.value),
-    }, console.log('this.state.price: ', this.state.price));
+    console.log('eti: ', event.target.id);
+    let eti = event.target.id;
+    if (eti === 'interest') {
+      let newDown = this.state.price * (event.target.value / 100)
+      this.setState({
+        down: newDown,
+        [eti]: Number(event.target.value),
+      }, console.log('this.state.price: ', this.state.price));
+    } else {
+      this.setState({
+        [eti]: Number(event.target.value),
+        interest: +((event.target.value / this.state.price) * 100).toFixed(2),
+      }, console.log('this.state.price: ', this.state.price));
+    }
   };
 
   handleSubmit(e) {
