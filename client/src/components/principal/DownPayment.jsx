@@ -9,17 +9,20 @@ const DownPayment = (props) => {
         Down Payment
       </div>
       <div>
+      {/* invalid when non-int are entered, or when higher than total homeprice */}
         <input
           type="text"
           id="downPayment"
           defaultValue={downStr}
         />
+        {/* invalid when non pos int, or greater than 100 */}
         <input
           type="text"
           id="downPaymentPercent"
           defaultValue={interest}
         />
       </div>
+      <div><small>Mortgage insurance is usually required for down payments below 20%.</small></div>
     </div>
   );
 };

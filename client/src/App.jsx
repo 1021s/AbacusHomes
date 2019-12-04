@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import Header from './components/Header.jsx';
 import Principal from './components/principal/Principal.jsx';
 
@@ -17,13 +17,13 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
-    this.getPrice();
-  }
+  // componentWillMount() {
+  //   // this.getPrice();
+  //   console.log('woot');
+  // }
 
   componentDidMount() {
-    // this.getPrice();
-    console.log('woot');
+    this.getPrice();
   }
 
   getPrice() {
@@ -79,13 +79,25 @@ class App extends React.Component {
     const { price, monthly, priceStr, interest, interestRate, down, downStr } = this.state;
     const { usdF, handleChange, handleSubmit } = this;
     // const MyContext = React.createContext('calculating...');
+
+    const FontDiv = styled.div`
+      font-family: "Open Sans", Tahoma, Geneva, sans-serif;
+      font-color: rgb(42, 42, 51);
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 18px;
+      letter-spacing: 0px;
+      text-transform: none;
+      margin: 0px;
+    `;
+
     return (
-      <div>
+      <FontDiv>
         {/* <MyContext.Provider value={price}> */}
         <Header monthly={monthly} usdF={usdF} />
         <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} interestRate={interestRate} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} />
         {/* </MyContext.Provider> */}
-      </div>
+      </FontDiv>
     );
   }
 }
