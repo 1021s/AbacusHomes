@@ -13,6 +13,8 @@ class App extends React.Component {
     this.usdF = this.usdF.bind(this);
     // this.updateMC = this.updateMC.bind(this);
     this.percentConv = this.percentConv.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -54,10 +56,6 @@ class App extends React.Component {
     return numArr.join('');
   }
 
-  // updateMC(value) {
-  //   console.log('friggin chill')
-  // }
-
   // eslint-disable-next-line class-methods-use-this
   percentConv(val) {
     if (val[val.length - 1] === '%') {
@@ -66,15 +64,25 @@ class App extends React.Component {
     }
   }
 
+  handleChange(event) {
+    this.setState({
+      price: event.target.value,
+    }, console.log('this.state.price: ', this.state.price));
+  };
+
+  handleSubmit(e) {
+    console.log('wut? why was something submitted?')
+  }
+
   render() {
     const { price, monthly, priceStr, interest, interestRate, down, downStr } = this.state;
-    const { usdF } = this;
+    const { usdF, handleChange } = this;
     // const MyContext = React.createContext('calculating...');
     return (
       <div>
         {/* <MyContext.Provider value={price}> */}
         <Header monthly={monthly} usdF={usdF} />
-        <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} interestRate={interestRate} downStr={downStr} />
+        <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} interestRate={interestRate} downStr={downStr} handleChange={handleChange} />
         {/* </MyContext.Provider> */}
       </div>
     );

@@ -1,16 +1,21 @@
 import React from 'react';
 
 const HomePrice = (props) => {
-  const { usdF, price, monthly, priceStr } = props;
+  const { usdF, price, monthly, priceStr, handleChange } = props;
+
   return (
-    <div>
-      <div>Home price</div>
-      <input
-        type="text"
-        id="monthlyPrice"
-        defaultValue={priceStr}
-      />
-    </div>
+    <form>
+      <label>
+        Home price
+        <input
+          type="text"
+          id="monthlyPrice"
+          defaultValue={priceStr}
+          onChange={() => handleChange()}
+          // value={price}
+        />
+      </label>
+    </form>
   );
 };
 

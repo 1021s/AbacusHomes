@@ -2,6 +2,7 @@ import React from 'react';
 
 const DownPayment = (props) => {
   const { usdF, price, monthly, down, downStr, interest } = props;
+
   return (
     <div>
       <div>

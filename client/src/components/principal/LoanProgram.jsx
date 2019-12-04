@@ -5,7 +5,6 @@ const LoanProgram = (props) => {
   return (
     <div>
       <div>Loan program</div>
-      <div>i</div>
       <select>
         <option value="thirtyYear">30-year fixed</option>
         <option value="fifteenYear">15-year fixed</option>
