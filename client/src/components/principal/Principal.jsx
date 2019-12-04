@@ -9,14 +9,27 @@ class Principal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      test: ''
+      pAndI: props.price,
     };
+    this.calcPandI = this.calcPandI.bind(this);
   }
 
+  componentDidMount() {
+    console.log('when does this happen?')
+    this.calcPandI();
+  }
 
+  calcPandI() {
+    let afterDown = this.props.price - this.props.down;
+    let newPandI = Math.round(afterDown + (afterDown * (this.props.interestRate / 100)));
+    this.setState({
+      pAndI: newPandI,
+    }, console.log(this.props.price, this.props.down));
+  }
 
   render() {
-    const { usdF, price, monthly, priceStr, interest, interestRate, down, downStr, handleChange, handleSubmit, expand, expanded } = this.props;
+    const { usdF, price, monthly, priceStr, interest, interestRate, down, downStr, handleChange, handleSubmit, expand, expanded, updateMC } = this.props;
+    const { pAndI } = this.state;
 
     const Box = styled.div`
       border: 2px solid rgba(200, 200, 200, 0.6);
@@ -48,12 +61,12 @@ class Principal extends React.Component {
 
     return (
       <div>
-        <div><PandI usdF={usdF} price={price} monthly={monthly} expand={expand} expanded={expanded}/></div>
-
+        <div><PandI pAndI={pAndI} expand={expand} expanded={expanded} /></div>
+        {/* usdF={usdF} price={price} monthly={monthly} */}
         {expanded ? (
           <div>
             <HomePrice usdF={usdF} price={price} priceStr={priceStr} handleChange={handleChange} handleSubmit={handleSubmit} 
-            Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol}/>
+            Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} updateMC={updateMC} />
             <DownPayment usdF={usdF} price={price} down={down} interest={interest} downStr={downStr} 
               Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} Column={Column} OneColumn={OneColumn} />
             <LoanProgram usdF={usdF} price={price} interestRate={interestRate} Column={Column} OneColumn={OneColumn} Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} />

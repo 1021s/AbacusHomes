@@ -3,10 +3,6 @@ import styled from 'styled-components';
 
 const PandI = (props) => {
 
-  const animate = () => {
-    
-  }
-
   const Column = styled.div`
     column-count: 2;
   `;
@@ -24,7 +20,7 @@ const PandI = (props) => {
     border: 0px;
   `;
 
-  const { usdF, price, monthly, expand, expanded } = props;
+  const { usdF, price, monthly, expand, expanded, pAndI } = props;
   return (
     <Column>
       <OneColumn>
@@ -32,7 +28,7 @@ const PandI = (props) => {
           Principal & Interest
         </div>
         <div>
-          {usdF(Math.round(price / 12))}
+          {Math.round(pAndI / 12)}
           /mo
         </div>
       </OneColumn>

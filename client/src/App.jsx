@@ -17,6 +17,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.expand = this.expand.bind(this);
+    this.updateMC = this.updateMC.bind(this);
   }
 
   // componentWillMount() {
@@ -38,7 +39,7 @@ class App extends React.Component {
       .then(() => this.setState({
         monthly: Math.round(this.state.price / 12),
         priceStr: this.usdF(this.state.price),
-        down: this.state.price * this.percentConv(this.state.interest),
+        down: this.state.price * (this.state.interest / 100),
       }))
       .then(() => this.setState({
         downStr: this.usdF(this.state.down),
@@ -67,6 +68,7 @@ class App extends React.Component {
   }
 
   handleChange(event) {
+    event.preventDefault();
     this.setState({
       price: event.target.value,
     }, console.log('this.state.price: ', this.state.price));
@@ -80,12 +82,16 @@ class App extends React.Component {
   expand() {
     this.setState({
       expanded: !this.state.expanded
-    }, () => console.log(this.state.expanded));
+    }, () => console.log('Expanded? ', this.state.expanded));
+  }
+
+  updateMC() {
+    console.log('updating...')
   }
 
   render() {
     const { price, monthly, priceStr, interest, interestRate, down, downStr, expanded } = this.state;
-    const { usdF, handleChange, handleSubmit, expand } = this;
+    const { usdF, handleChange, handleSubmit, expand, updateMC } = this;
     // const MyContext = React.createContext('calculating...');
 
     const FontDiv = styled.div`
@@ -105,7 +111,7 @@ class App extends React.Component {
         <Header monthly={monthly} usdF={usdF} />
         <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} 
         interestRate={interestRate} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} 
-        expand={expand} expanded={expanded} />
+        expand={expand} expanded={expanded} updateMC={updateMC} />
         {/* </MyContext.Provider> */}
       </FontDiv>
     );

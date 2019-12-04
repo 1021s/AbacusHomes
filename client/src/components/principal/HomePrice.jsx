@@ -17,7 +17,7 @@ const HomePrice = (props) => {
             id="price"
             // defaultValue={priceStr}
             onChange={handleChange}
-            value={new Intl.NumberFormat('en').format(price)}
+            value={price}
           />
         </Box>
       </label>
