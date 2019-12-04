@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 
 const LoanProgram = (props) => {
-  const { interestRate, Column, OneColumn, Box, HiddenInput, GhostSymbol } = props;
+  const { interestRate, Column, OneColumn, Box, HiddenInput, GhostSymbol, handleChange } = props;
 
   const Linky = styled.a`
     text-decoration: none;
@@ -33,6 +33,7 @@ const LoanProgram = (props) => {
             type="text"
             id="interest"
             defaultValue={interestRate}
+            onChange={handleChange}
           />
           <GhostSymbol> % </GhostSymbol>
         </Box>

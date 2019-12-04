@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DownPayment = (props) => {
-  const { usdF, price, monthly, down, downStr, interest, Box, HiddenInput, GhostSymbol, Column, OneColumn, updateMC } = props;
+  const { usdF, price, monthly, down, downStr, interest, Box, HiddenInput, GhostSymbol, Column, OneColumn, updateMC, handleChange } = props;
 
   return (
     <div>
@@ -16,7 +16,7 @@ const DownPayment = (props) => {
             type="text"
             id="downPayment"
             defaultValue={down}
-            onChange={updateMC}
+            onChange={handleChange}
           />
         </Box>
       </form>
@@ -27,6 +27,7 @@ const DownPayment = (props) => {
             type="text"
             id="downPaymentPercent"
             defaultValue={interest}
+            onChange={handleChange}
           />
           <GhostSymbol> % </GhostSymbol>
         </Box>
