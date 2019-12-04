@@ -1,27 +1,29 @@
 import React from 'react';
 
 const DownPayment = (props) => {
-  const { usdF, price, monthly, down, downStr, interest } = props;
+  const { usdF, price, monthly, down, downStr, interest, Box, HiddenInput, GhostSymbol } = props;
 
   return (
     <div>
       <div>
         Down Payment
       </div>
-      <div>
       {/* invalid when non-int are entered, or when higher than total homeprice */}
-        <input
+      <Box>
+        <GhostSymbol> $ </GhostSymbol>
+        <HiddenInput
           type="text"
           id="downPayment"
           defaultValue={downStr}
         />
         {/* invalid when non pos int, or greater than 100 */}
-        <input
+        <GhostSymbol> $ </GhostSymbol>
+        <HiddenInput
           type="text"
           id="downPaymentPercent"
           defaultValue={interest}
         />
-      </div>
+      </Box>
       <div><small>Mortgage insurance is usually required for down payments below 20%.</small></div>
     </div>
   );

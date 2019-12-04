@@ -9,12 +9,14 @@ class App extends React.Component {
     this.state = {
       interest: '20%',
       interestRate: '3.758%',
+      expanded: false,
     };
     this.usdF = this.usdF.bind(this);
     // this.updateMC = this.updateMC.bind(this);
     this.percentConv = this.percentConv.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.expand = this.expand.bind(this);
   }
 
   // componentWillMount() {
@@ -75,9 +77,15 @@ class App extends React.Component {
     this.handleChange();
   }
 
+  expand() {
+    this.setState({
+      expanded: !this.state.expanded
+    }, () => console.log(this.state.expanded));
+  }
+
   render() {
-    const { price, monthly, priceStr, interest, interestRate, down, downStr } = this.state;
-    const { usdF, handleChange, handleSubmit } = this;
+    const { price, monthly, priceStr, interest, interestRate, down, downStr, expanded } = this.state;
+    const { usdF, handleChange, handleSubmit, expand } = this;
     // const MyContext = React.createContext('calculating...');
 
     const FontDiv = styled.div`
@@ -95,7 +103,9 @@ class App extends React.Component {
       <FontDiv>
         {/* <MyContext.Provider value={price}> */}
         <Header monthly={monthly} usdF={usdF} />
-        <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} interestRate={interestRate} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} />
+        <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} 
+        interestRate={interestRate} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} 
+        expand={expand} expanded={expanded} />
         {/* </MyContext.Provider> */}
       </FontDiv>
     );

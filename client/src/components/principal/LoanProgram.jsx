@@ -40,26 +40,3 @@ const LoanProgram = (props) => {
 };
 
 export default LoanProgram;
-
-
-    /* <SectionTitle>
-        Loan program
-        <select>
-          <option value="thirtyYear">30-year fixed</option>
-          <option value="fifteenYear">15-year fixed</option>
-          <option value="ARM">5/1 ARM</option>
-        </select>
-      </SectionTitle>
-      <SectionTitle>
-        Interest rate
-        <input
-          type="text"
-          id="interest"
-          defaultValue="3.729%"
-        />
-      </SectionTitle>
-      <SectionTitle>
-          <Link href="https://www.zillow.com/mortgage-rates/?auto=true&zip=98144&value=2300000&down=460000&loantype=purchase&source=HDPModuleWOW_rates">
-            See current rates
-          </Link>
-      </SectionTitle> */
