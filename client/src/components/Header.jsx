@@ -1,14 +1,14 @@
 import React from 'react';
 
 const Header = (props) => {
-  const { usdF, price } = props;
+  const { usdF, monthly } = props;
   return (
     <div>
       <h3>Monthly Cost</h3>
       <hr />
       <p align="center">
         <font color="green">
-          {usdF(price)}
+          {usdF(monthly)}
         </font>
       </p>
       <p align="center">
