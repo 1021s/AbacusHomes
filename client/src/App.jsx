@@ -7,8 +7,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      interest: '20%',
-      interestRate: '3.758%',
+      interest: '20',
+      interestRate: '3.758',
       expanded: false,
     };
     this.usdF = this.usdF.bind(this);

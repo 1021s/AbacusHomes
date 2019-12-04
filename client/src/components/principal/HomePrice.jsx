@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HomePrice = (props) => {
-  const { usdF, price, monthly, priceStr, handleChange, handleSubmit } = props;
+  const { usdF, price, monthly, priceStr, handleChange, handleSubmit, Box, GhostSymbol, HiddenInput } = props;
 
   return (
     <form onSubmit={handleSubmit}>

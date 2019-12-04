@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DownPayment = (props) => {
-  const { usdF, price, monthly, down, downStr, interest, Box, HiddenInput, GhostSymbol } = props;
+  const { usdF, price, monthly, down, downStr, interest, Box, HiddenInput, GhostSymbol, Column, OneColumn } = props;
 
   return (
     <div>
@@ -14,15 +14,17 @@ const DownPayment = (props) => {
         <HiddenInput
           type="text"
           id="downPayment"
-          defaultValue={downStr}
+          defaultValue={new Intl.NumberFormat('en').format(down)}
         />
+      </Box>
+      <Box>
         {/* invalid when non pos int, or greater than 100 */}
-        <GhostSymbol> $ </GhostSymbol>
         <HiddenInput
           type="text"
           id="downPaymentPercent"
-          defaultValue={interest}
+          defaultValue={new Intl.NumberFormat('en').format(interest)}
         />
+        <GhostSymbol> % </GhostSymbol>
       </Box>
       <div><small>Mortgage insurance is usually required for down payments below 20%.</small></div>
     </div>
@@ -30,26 +32,3 @@ const DownPayment = (props) => {
 };
 
 export default DownPayment;
-
-// import React from 'react';
-
-// const DownPayment = (props) => (
-//   <div>
-//     DownPayment
-//     <SectionTitle>
-//         Down payment
-//         <input
-//           type="text"
-//           id="downPayment"
-//           defaultValue={usdF(price * 0.2)}
-//         />
-//         <input
-//           type="text"
-//           id="downPercent"
-//           defaultValue="20%"
-//         />
-//       </SectionTitle>
-//   </div>
-// );
-
-// export default DownPayment;

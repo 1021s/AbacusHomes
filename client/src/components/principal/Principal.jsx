@@ -20,7 +20,6 @@ class Principal extends React.Component {
 
     const Box = styled.div`
       border: 2px solid rgba(200, 200, 200, 0.6);
-      ${'' /* border-radius: 12px; */}
       max-width: 150px;
       margin: 0px;
       padding: 0px;
@@ -39,6 +38,14 @@ class Principal extends React.Component {
       margin: 5px;
     `;
 
+    const Column = styled.div`
+      column-count: 2;
+    `;
+
+    const OneColumn = styled.div`
+      column-span: 1;
+    `;
+
     return (
       <div>
         <div><PandI usdF={usdF} price={price} monthly={monthly} expand={expand} expanded={expanded}/></div>
@@ -48,8 +55,8 @@ class Principal extends React.Component {
             <HomePrice usdF={usdF} price={price} priceStr={priceStr} handleChange={handleChange} handleSubmit={handleSubmit} 
             Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol}/>
             <DownPayment usdF={usdF} price={price} down={down} interest={interest} downStr={downStr} 
-              Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} />
-            <LoanProgram usdF={usdF} price={price} interestRate={interestRate} />
+              Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} Column={Column} OneColumn={OneColumn} />
+            <LoanProgram usdF={usdF} price={price} interestRate={interestRate} Column={Column} OneColumn={OneColumn} Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} />
           </div>
         ) : (
           <div> </div>

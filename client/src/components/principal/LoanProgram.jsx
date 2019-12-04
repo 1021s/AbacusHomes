@@ -2,14 +2,13 @@ import React from 'react';
 import styled from 'styled-components'
 
 const LoanProgram = (props) => {
-  const { interestRate } = props;
+  const { interestRate, Column, OneColumn, Box, HiddenInput, GhostSymbol } = props;
 
-  const Column = styled.div`
-    column-count: 2;
-  `;
-
-  const OneColumn = styled.div`
-    column-span: 1;
+  const Linky = styled.a`
+    text-decoration: none;
+    underline: none;
+    font-size: 8px;
+    font-weight: 300;
   `;
 
   return (
@@ -22,18 +21,21 @@ const LoanProgram = (props) => {
           <option value="ARM">5/1 ARM</option>
         </select>
         <div>
-          <a href="https://bit.ly/2PbhngT">See current rates</a>
+          <Linky href="https://bit.ly/2PbhngT">See current rates</Linky>
         </div>
       </OneColumn>
       <OneColumn>
         <div>Interest Rate</div>
         {/* invalid with non-pos-int or, >100 
         three decimal points...rounded */}
-        <input
-          type="text"
-          id="interest"
-          defaultValue={interestRate}
-        />
+        <Box>
+          <HiddenInput
+            type="text"
+            id="interest"
+            defaultValue={interestRate}
+          />
+          <GhostSymbol> % </GhostSymbol>
+        </Box>
       </OneColumn>
     </Column>
   );
