@@ -1,18 +1,18 @@
 import React from 'react';
 
 const HomePrice = (props) => {
-  const { usdF, price, monthly, priceStr, handleChange } = props;
+  const { usdF, price, monthly, priceStr, handleChange, handleSubmit } = props;
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         Home price
         <input
           type="text"
-          id="monthlyPrice"
-          defaultValue={priceStr}
-          onChange={() => handleChange()}
-          // value={price}
+          id="price"
+          // defaultValue={priceStr}
+          onChange={handleChange}
+          value={usdF(price)}
         />
       </label>
     </form>
@@ -20,15 +20,3 @@ const HomePrice = (props) => {
 };
 
 export default HomePrice;
-
-    /* <SectionTitle>
-        Home price
-        <span>
-          <label>$</label>
-          <input
-            type="text"
-            id="monthlyPrice"
-            defaultValue={usdF(price)}
-          />
-        </span>
-      </SectionTitle> */

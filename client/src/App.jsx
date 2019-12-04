@@ -71,18 +71,19 @@ class App extends React.Component {
   };
 
   handleSubmit(e) {
-    console.log('wut? why was something submitted?')
+    e.preventDefault();
+    this.handleChange();
   }
 
   render() {
     const { price, monthly, priceStr, interest, interestRate, down, downStr } = this.state;
-    const { usdF, handleChange } = this;
+    const { usdF, handleChange, handleSubmit } = this;
     // const MyContext = React.createContext('calculating...');
     return (
       <div>
         {/* <MyContext.Provider value={price}> */}
         <Header monthly={monthly} usdF={usdF} />
-        <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} interestRate={interestRate} downStr={downStr} handleChange={handleChange} />
+        <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} interestRate={interestRate} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} />
         {/* </MyContext.Provider> */}
       </div>
     );
