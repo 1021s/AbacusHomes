@@ -8,7 +8,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       interest: 20,
-      interestRate: 3.692,
       expanded: false,
     };
     this.usdF = this.usdF.bind(this);
@@ -18,17 +17,11 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.expand = this.expand.bind(this);
     this.updateMC = this.updateMC.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
   }
 
-  // componentWillMount() {
-  //   // this.getPrice();
-  //   console.log('woot');
-  // }
-
   componentDidMount() {
-    // this.getPrice();
-    this.unitTest();
+    this.getPrice();
+    // this.unitTest();
   }
 
   // eslint-disable-next-line react/sort-comp
@@ -39,7 +32,6 @@ class App extends React.Component {
       priceStr: '600,000',
       down: 60000,
       downStr: '60,000',
-      interestRate: 6,
       expanded: false,
     });
   }
@@ -105,13 +97,6 @@ class App extends React.Component {
     this.handleChange();
   }
 
-  handleSelect(e) {
-    e.preventDefault();
-    this.setState({
-      interestRate: Number(e.target.value),
-    }, console.log('stop here please...', e.target));
-  }
-
   expand() {
     this.setState({
       expanded: !this.state.expanded
@@ -123,7 +108,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { price, monthly, priceStr, interest, interestRate, down, downStr, expanded } = this.state;
+    const { price, monthly, priceStr, interest, down, downStr, expanded } = this.state;
     const { usdF, handleChange, handleSubmit, expand, updateMC, handleSelect } = this;
     // const MyContext = React.createContext('calculating...');
 
@@ -143,7 +128,7 @@ class App extends React.Component {
         {/* <MyContext.Provider value={price}> */}
         <Header monthly={monthly} usdF={usdF} />
         <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} 
-        interestRate={interestRate} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} 
+        downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} 
         expand={expand} expanded={expanded} updateMC={updateMC} handleSelect={handleSelect} />
         {/* </MyContext.Provider> */}
       </FontDiv>
