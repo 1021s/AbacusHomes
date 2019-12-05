@@ -12,7 +12,7 @@ class App extends React.Component {
       expanded: false,
     };
     this.usdF = this.usdF.bind(this);
-    // this.updateMC = this.updateMC.bind(this);
+    this.updateMC = this.updateMC.bind(this);
     this.percentConv = this.percentConv.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,21 @@ class App extends React.Component {
   // }
 
   componentDidMount() {
-    this.getPrice();
+    // this.getPrice();
+    this.unitTest();
+  }
+
+  // eslint-disable-next-line react/sort-comp
+  unitTest() {
+    this.setState({
+      price: 600000,
+      monthly: 1000,
+      priceStr: '600,000',
+      down: 60000,
+      downStr: '60,000',
+      interestRate: 6,
+      expanded: false,
+    });
   }
 
   getPrice() {

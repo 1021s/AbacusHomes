@@ -1,10 +1,17 @@
 {
   "name": "matthew-service",
+  "jest": {
+    "automock": false,
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setupTests.js"
+    ]
+  },
   "version": "1.0.0",
   "description": "monthlyCost module",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "build": "webpack -d --watch",
     "server": "nodemon server/index.js",
     "seed": "node server/index.js",
@@ -22,12 +29,16 @@
   "homepage": "https://github.com/1021s/Matthew-service#readme",
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.7.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "jest": "^24.9.0",
+    "jest-fetch-mock": "^2.1.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
