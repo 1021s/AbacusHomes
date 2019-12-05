@@ -12,47 +12,43 @@ const LoanProgram = (props) => {
   `;
 
   return (
-    <Column>
-      <OneColumn>
-        <form>
-          <label>
-            Loan program
-            <select value={loan} onChange={handleSelect}>
-              <option value="3.692">30-year fixed</option>
-              <option value="3.592">15-year fixed</option>
-              <option value="3.058">5/1 ARM</option>
-            </select>
-          </label>
-        </form>
-        <div>
-          <Linky href="https://bit.ly/2PbhngT">See current rates</Linky>
-        </div>
-      </OneColumn>
+    <div>
+      <Column>
+        <OneColumn>
+          <form>
+            <label>
+              Loan program
+              <select value={loan} onChange={handleSelect}>
+                <option value="3.702">30-year fixed</option>
+                <option value="3.563">15-year fixed</option>
+                <option value="3.134">5/1 ARM</option>
+              </select>
+            </label>
+          </form>
+        </OneColumn>
 
-      <OneColumn>
-        <div>Interest Rate</div>
-        {loan === "3.692" && 
-          <div>thirtyYear</div>}
+        <OneColumn>
+          {/* later functionality: invalid with non-pos-int or, >100 
+          three decimal points...rounded */}
+          <Box>
+            <HiddenInput
+              type="text"
+              id="interestRate"
+              value={loan}
+              onChange={handleSelect}
+            />
+            <GhostSymbol> % </GhostSymbol>
+          </Box>
+        </OneColumn>
+      </Column>
 
-        {loan === "3.592" &&
-          <div>fifteenYear</div>}
+      <div>
+        {loan === "3.134" &&
+          <div> 5/1 ARM rates (and monthly payment) may change after the initial fixed-rate period. </div>}
+        <Linky href="https://bit.ly/2PbhngT">See current rates</Linky>
+      </div>
 
-        {loan === "3.058" &&
-          <div> 5/1 ARM </div>}
-
-        {/* invalid with non-pos-int or, >100 
-        three decimal points...rounded */}
-        <Box>
-          <HiddenInput
-            type="text"
-            id="interestRate"
-            value={loan}
-            onChange={handleChange}
-          />
-          <GhostSymbol> % </GhostSymbol>
-        </Box>
-      </OneColumn>
-    </Column>
+    </div>
   );
 };
 

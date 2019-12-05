@@ -103,8 +103,12 @@ class App extends React.Component {
     }, () => console.log('Expanded? ', this.state.expanded));
   }
 
-  updateMC() {
-    console.log('updating...')
+  updateMC(val, child) {
+    console.log('updating est monthly cost', val);
+    let newMC = this.state.monthly + val;
+    this.setState({
+      monthly: (child === 'principal') ? val : newMC,
+    }, () => console.log(this.state.monthly));
   }
 
   render() {

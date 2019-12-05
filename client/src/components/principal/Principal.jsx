@@ -9,24 +9,41 @@ class Principal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loan: '3.692',
-      pAndI: this.calcPandI(),
+      loan: '3.702',
+      pAndI: this.calcPandI(3.702, 360),
     };
     this.calcPandI = this.calcPandI.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
 
-  calcPandI() {
+  calcPandI(num, len) {
     let afterDown = this.props.price - this.props.down;
-    let newPandI = this.props.price + (afterDown * (3.692 / 100));
-    return Math.round(newPandI);
+    let afterInterest = (afterDown * (num / 100));
+    let perMonth = (afterDown + afterInterest) / len;
+
+    
+
+    return Math.round(perMonth);
   }
 
   handleSelect(e) {
     e.preventDefault();
+    let loanLength = 360;
+    console.log('handleSelect: ', e.target.value);
+    if (e.target.value === 3.702) {
+      loanLength = 360;
+    }
+    if (e.target.value === 3.563) {
+      loanLength = 180;
+    }
+    if (e.target.value === 3.134) {
+      loanLength = 360;
+    }
     this.setState({
       loan: e.target.value,
-    });
+      pAndI: this.calcPandI(e.target.value, loanLength),
+    }, () => console.log(this.state.pAndI));
+    // this.props.updateMC(this.state.pAndI, 'principal');
   }
 
   render() {
@@ -65,7 +82,6 @@ class Principal extends React.Component {
     return (
       <div>
         <div><PandI pAndI={pAndI} expand={expand} expanded={expanded} /></div>
-        {/* usdF={usdF} price={price} monthly={monthly} */}
         {expanded ? (
           <div>
             <HomePrice usdF={usdF} price={price} priceStr={priceStr} handleChange={handleChange} handleSubmit={handleSubmit} 
@@ -78,7 +94,6 @@ class Principal extends React.Component {
         ) : (
           <div> </div>
         )}
-
       </div>
     );
   }

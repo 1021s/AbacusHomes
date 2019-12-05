@@ -28,7 +28,7 @@ const PandI = (props) => {
           Principal & Interest
         </div>
         <div>
-          {Math.round(pAndI / 12)}
+          {pAndI}
           /mo
         </div>
       </OneColumn>
