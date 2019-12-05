@@ -10,8 +10,10 @@ class Principal extends React.Component {
     super(props);
     this.state = {
       pAndI: this.calcPandI(),
+      loanType: 'thirtyYear',
     };
     this.calcPandI = this.calcPandI.bind(this);
+    // this.handleLocalChange = this.handleLocalChange.bind(this);
   }
 
   calcPandI() {
@@ -21,9 +23,18 @@ class Principal extends React.Component {
     return Math.round(newPandI);
   }
 
+  // handleLocalChange(event) {
+  //   event.preventDefault();
+  //   console.log('locally handled?');
+  //   this.setState({
+  //     loanType: event.target.value,
+  //   });
+  // }
+
   render() {
-    const { usdF, price, monthly, priceStr, interest, interestRate, down, downStr, handleChange, handleSubmit, expand, expanded, updateMC } = this.props;
-    const { pAndI } = this.state;
+    const { usdF, price, monthly, priceStr, interest, interestRate, down, downStr, handleChange, handleSubmit, expand, expanded, updateMC, handleSelect } = this.props;
+    const { pAndI, loanType } = this.state;
+    const { handleLocalChange } = this;
 
     const Box = styled.div`
       border: 2px solid rgba(200, 200, 200, 0.6);
@@ -63,8 +74,8 @@ class Principal extends React.Component {
             Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} updateMC={updateMC} />
             <DownPayment usdF={usdF} price={price} down={down} interest={interest} downStr={downStr} handleChange={handleChange}
               Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} Column={Column} OneColumn={OneColumn} />
-            <LoanProgram usdF={usdF} price={price} interestRate={interestRate} Column={Column} OneColumn={OneColumn} 
-            handleChange={handleChange} Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} />
+            <LoanProgram handleLocalChange={handleLocalChange} loanType={loanType} usdF={usdF} price={price} interestRate={interestRate} Column={Column} OneColumn={OneColumn} 
+            handleChange={handleChange} Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} handleSelect={handleSelect} />
           </div>
         ) : (
           <div> </div>
