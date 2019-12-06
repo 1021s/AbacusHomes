@@ -19,6 +19,7 @@ class App extends React.Component {
       homeInsurance: false,
       hoaFees: false,
       utilities: false,
+      propTax: 1.01,
     };
     this.usdF = this.usdF.bind(this);
     this.percentConv = this.percentConv.bind(this);
@@ -50,7 +51,6 @@ class App extends React.Component {
       .then((data) => this.setState({
         price: data[(Math.floor(Math.random() * 100))].price,
       }))
-      .then(() => console.log(this.state.interest))
       .then(() => this.setState({
         monthly: Math.round(this.state.price / 360),
         priceStr: this.usdF(this.state.price),
@@ -107,10 +107,9 @@ class App extends React.Component {
   }
 
   expand(name) {
-    console.log('expand function says: ', name)
     this.setState({
       [name]: !this.state[name]
-    }, () => console.log('Expanded? ', this.state[name]));
+    });
   }
 
   updateMC(val, child) {
@@ -122,16 +121,20 @@ class App extends React.Component {
   }
 
   render() {
-    const { price, monthly, priceStr, interest, down, downStr, principalAndInterest, mortgageInsurance, propertyTaxes, homeInsurance, hoaFees, utilities, morInsVal } = this.state;
+    const { propTax, price, monthly, priceStr, interest, down, downStr,
+      principalAndInterest, mortgageInsurance, propertyTaxes, homeInsurance,
+      hoaFees, utilities, morInsVal } = this.state;
     const { usdF, handleChange, handleSubmit, expand, updateMC } = this;
     // const MyContext = React.createContext('calculating...');
 
     const FontDiv = styled.div`
+      ${'' /* display: flex;
+      flex-direction: column; */}
       font-family: "Open Sans", Tahoma, Geneva, sans-serif;
       font-color: rgb(42, 42, 51);
-      font-weight: 500;
-      font-size: 10px;
-      line-height: 18px;
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 16px;
       letter-spacing: 0px;
       text-transform: none;
       margin: 0px;
@@ -142,39 +145,63 @@ class App extends React.Component {
     `;
 
     const CaratB = styled.button`
+      display: flex;
+      margin-left: auto;
+      right: 20px;
       color: #1277e1;
       font-weight: 350;
       font-stretch: ultra-expanded;
       font-size: 18px;
-      background: white;
+      background: transparent;
       border: 0px;
       align: right;
-     `;
+    `;
 
     const Footer = styled.div`
       font-size: 6px;
       font-weight: 100;
+      margin-bottom: 1%;
     `;
 
-    // const Col = styled.div`
-    //   column-count: 2;
-    // `;
+    const LabelWrap = styled.label`
+    
+    `;
 
-    // const OneCol = styled.div`
-    //   column-span: 1;
-    // `;
+    const Box = styled.div`
+      border: 2px solid rgba(200, 200, 200, 0.6);
+      background: white;
+      max-width: 150px;
+      margin: 0px;
+      padding: 0px;
+      ${LabelWrap}:hover & {
+        border-color: rgb(0, 106, 255);
+      }
+    `;
+
+    const HiddenInput = styled.input`
+      border: 0px;
+    `;
+
+    const GhostSymbol = styled.span`
+      color: rgba(200, 200, 200, 0.8);
+      font-size: 10px;
+      font-weight: 500;
+      font-shadow: 1px rgba(211, 211, 211, 0.8)
+      padding: 5px;
+      margin: 5px;
+    `;
 
     return (
       <FontDiv>
         {/* <MyContext.Provider value={price}> */}
         <Header monthly={monthly} usdF={usdF} />
         <GrayDiv>
-          <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} expand={expand} expanded={principalAndInterest} updateMC={updateMC} CaratB={CaratB} />
+          <Principal HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} expand={expand} expanded={principalAndInterest} updateMC={updateMC} CaratB={CaratB} />
         </GrayDiv>
         {/* </MyContext.Provider> */}
-        <Mortgage updateMC={updateMC} morInsVal={morInsVal} expand={expand} expanded={mortgageInsurance} CaratB={CaratB} />
+        <Mortgage LabelWrap={LabelWrap} Box={Box} updateMC={updateMC} morInsVal={morInsVal} expand={expand} expanded={mortgageInsurance} CaratB={CaratB} />
         <GrayDiv>
-          <PropertyTaxes price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} />
+          <PropertyTaxes propTax={propTax} price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} />
         </GrayDiv>
         <HomeInsurance price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} />
         <GrayDiv>

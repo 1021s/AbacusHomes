@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>6/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>6/7</span>
       </div>
     </div>
     <p class="quiet">
@@ -92,30 +92,34 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,43 +147,45 @@ import styled from 'styled-components';
 &nbsp;
 const PandI = (props) =&gt; {
 &nbsp;
-  const Column = styled.div`
-    column-count: 2;
+  const { CaratB, usdF, price, monthly, expand, expanded, pAndI } = props;
+&nbsp;
+  const Head = styled.div`
+    font-size: 9px;
+    font-weight: 600;
   `;
 &nbsp;
-  const OneColumn = styled.div`
-    column-span: 1;
+  const Flex = styled.div`
+    display: flex;
   `;
 &nbsp;
-  const CaratB = styled.button`
-    color: #1277e1;
-    font-weight: 350;
-    font-stretch: ultra-expanded;
-    font-size: 18px;
-    background: white;
-    border: 0px;
+  const Right = styled.div`
+    margin-left: auto;
   `;
 &nbsp;
-  const { usdF, price, monthly, expand, expanded, pAndI } = props;
   return (
-    &lt;Column&gt;
-      &lt;OneColumn&gt;
-        &lt;div&gt;
+    &lt;Flex onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >expand('principalAndInterest')}</span>&gt;
+      &lt;div&gt;
+        &lt;Head&gt;
           Principal &amp; Interest
-        &lt;/div&gt;
+        &lt;/Head&gt;
         &lt;div&gt;
-          {Math.round(pAndI / 12)}
+          $
+          {pAndI}
           /mo
         &lt;/div&gt;
-      &lt;/OneColumn&gt;
-      &lt;OneColumn&gt;
+      &lt;/div&gt;
+      &lt;Right&gt;
         {expanded ? (
-<span class="branch-0 cbranch-no" title="branch not covered" >          &lt;CaratB onClick={expand}&gt; v &lt;/CaratB&gt;</span>
+<span class="branch-0 cbranch-no" title="branch not covered" >          &lt;CaratB&gt;</span>
+            &lt;img src="https://img.icons8.com/color/13/000000/collapse-arrow.png" alt="^" /&gt;
+          &lt;/CaratB&gt;
         ) : (
-          &lt;CaratB onClick={expand}&gt; ^ &lt;/CaratB&gt;
+          &lt;CaratB&gt;
+            &lt;img src="https://img.icons8.com/officexs/12/000000/expand-arrow.png" alt="v" /&gt;
+          &lt;/CaratB&gt;
         )}
-      &lt;/OneColumn&gt;
-    &lt;/Column&gt;
+      &lt;/Right&gt;
+    &lt;/Flex&gt;
   );
 };
 &nbsp;
@@ -190,7 +196,7 @@ export default PandI;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Dec 05 2019 00:11:21 GMT-0800 (PST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Dec 06 2019 10:40:22 GMT-0800 (PST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

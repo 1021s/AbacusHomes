@@ -7,23 +7,28 @@ const Header = (props) => {
   const GreenCost = styled.h4`
     text-align: center;
     color: rgb(23, 176, 54);
-    font-size: 16px;
+    font-size: 14px;
     margin: 0px;
+  `;
+
+  const Header = styled.div`
+    font-size: 14px;
+    font-stretch: expanded;
   `;
 
   const SubHeader = styled.div`
     text-align: center;
     font-size: 8px;
     margin: 0px;
-    font-weight: 450;
+    font-weight: 500;
   `;
 
   return (
     <div>
-      <h3>Monthly Cost</h3>
+      <Header>Monthly Cost</Header>
       <hr />
       <GreenCost>
-          {usdF(monthly)}
+        {usdF(monthly)}
       </GreenCost>
       <SubHeader>
           Estimated monthly cost

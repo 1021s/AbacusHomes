@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HomePrice = (props) => {
-  const { usdF, price, monthly, priceStr, handleChange, handleSubmit, Box, GhostSymbol, HiddenInput } = props;
+  const { LabelWrap, usdF, price, monthly, priceStr, handleChange, handleSubmit,
+    Box, GhostSymbol, HiddenInput } = props;
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <LabelWrap>
         {/* minimum price === 5,000 
         box-color becomes red and "Invalid home price" appears below*/}
         Home price
@@ -20,7 +21,7 @@ const HomePrice = (props) => {
             value={price}
           />
         </Box>
-      </label>
+      </LabelWrap>
     </form>
   );
 };

@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/6</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
     <p class="quiet">
@@ -122,7 +122,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,10 +165,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 &nbsp;
 const LoanProgram = (props) =&gt; {
-  const { handleSelect, handleLocalChange, loanType, interestRate, Column, OneColumn, Box, HiddenInput, GhostSymbol, handleChange } = props;
+  const { handleSelect, loan, Box, HiddenInput, GhostSymbol, handleChange } = props;
 &nbsp;
   const Linky = styled.a`
     text-decoration: none;
@@ -177,48 +177,48 @@ const LoanProgram = (props) =&gt; {
     font-weight: 300;
   `;
 &nbsp;
+  const Selw = styled.select`
+    background: white;
+  `;
+&nbsp;
   return (
-    &lt;Column&gt;
-      &lt;OneColumn&gt;
-        &lt;form&gt;
-          &lt;label&gt;
-            Loan program
-            &lt;select value={loanType} onChange={handleSelect}&gt;
-              &lt;option value="3.692"&gt;30-year fixed&lt;/option&gt;
-              &lt;option value="3.558"&gt;15-year fixed&lt;/option&gt;
-              &lt;option value="3.097"&gt;5/1 ARM&lt;/option&gt;
-            &lt;/select&gt;
-          &lt;/label&gt;
-        &lt;/form&gt;
+    &lt;div&gt;
+      &lt;div&gt;
         &lt;div&gt;
-          &lt;Linky href="https://bit.ly/2PbhngT"&gt;See current rates&lt;/Linky&gt;
+          &lt;form&gt;
+            &lt;label&gt;
+              Loan program
+              &lt;Selw value={loan} onChange={handleSelect}&gt;
+                &lt;option value="3.702"&gt;30-year fixed&lt;/option&gt;
+                &lt;option value="3.563"&gt;15-year fixed&lt;/option&gt;
+                &lt;option value="3.134"&gt;5/1 ARM&lt;/option&gt;
+              &lt;/Selw&gt;
+            &lt;/label&gt;
+          &lt;/form&gt;
         &lt;/div&gt;
-      &lt;/OneColumn&gt;
 &nbsp;
-      &lt;OneColumn&gt;
-        &lt;div&gt;Interest Rate&lt;/div&gt;
-        {loanType === "thirtyYear" &amp;&amp; 
-<span class="branch-1 cbranch-no" title="branch not covered" >          &lt;div&gt;thirtyYear&lt;/div&gt;}</span>
+        &lt;div&gt;
+          {/* later functionality: invalid with non-pos-int or, &gt;100 
+          three decimal points...rounded */}
+          &lt;Box&gt;
+            &lt;HiddenInput
+              type="text"
+              id="interestRate"
+              value={loan}
+              onChange={handleSelect}
+            /&gt;
+            &lt;GhostSymbol&gt; % &lt;/GhostSymbol&gt;
+          &lt;/Box&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
 &nbsp;
-        {loanType === "fifteenYear" &amp;&amp;
-<span class="branch-1 cbranch-no" title="branch not covered" >          &lt;div&gt;fifteenYear&lt;/div&gt;}</span>
+      &lt;div&gt;
+        {loan === "3.134" &amp;&amp;
+<span class="branch-1 cbranch-no" title="branch not covered" >          &lt;div&gt; 5/1 ARM rates (and monthly payment) may change after the initial fixed-rate period. &lt;/div&gt;}</span>
+        &lt;Linky href="https://bit.ly/2PbhngT"&gt;See current rates&lt;/Linky&gt;
+      &lt;/div&gt;
 &nbsp;
-        {loanType === "ARM" &amp;&amp;
-<span class="branch-1 cbranch-no" title="branch not covered" >          &lt;div&gt; ARM &lt;/div&gt;}</span>
-&nbsp;
-        {/* invalid with non-pos-int or, &gt;100 
-        three decimal points...rounded */}
-        &lt;Box&gt;
-          &lt;HiddenInput
-            type="text"
-            id="interestRate"
-            defaultValue={interestRate}
-            onChange={handleChange}
-          /&gt;
-          &lt;GhostSymbol&gt; % &lt;/GhostSymbol&gt;
-        &lt;/Box&gt;
-      &lt;/OneColumn&gt;
-    &lt;/Column&gt;
+    &lt;/div&gt;
   );
 };
 &nbsp;
@@ -229,7 +229,7 @@ export default LoanProgram;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Dec 05 2019 00:11:21 GMT-0800 (PST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Dec 06 2019 10:40:22 GMT-0800 (PST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

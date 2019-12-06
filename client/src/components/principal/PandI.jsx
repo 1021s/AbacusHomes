@@ -4,18 +4,33 @@ import styled from 'styled-components';
 const PandI = (props) => {
 
   const { CaratB, usdF, price, monthly, expand, expanded, pAndI } = props;
+
+  const Head = styled.div`
+    font-size: 9px;
+    font-weight: 600;
+  `;
+
+  const Flex = styled.div`
+    display: flex;
+  `;
+
+  const Right = styled.div`
+    margin-left: auto;
+  `;
+
   return (
-    <div onClick={() => expand('principalAndInterest')}>
+    <Flex onClick={() => expand('principalAndInterest')}>
       <div>
-        <div>
+        <Head>
           Principal & Interest
-        </div>
+        </Head>
         <div>
-          ${pAndI}
+          $
+          {pAndI}
           /mo
         </div>
       </div>
-      <div>
+      <Right>
         {expanded ? (
           <CaratB>
             <img src="https://img.icons8.com/color/13/000000/collapse-arrow.png" alt="^" />
@@ -25,10 +40,9 @@ const PandI = (props) => {
             <img src="https://img.icons8.com/officexs/12/000000/expand-arrow.png" alt="v" />
           </CaratB>
         )}
-      </div>
-    </div>
-  )
-}
+      </Right>
+    </Flex>
+  );
+};
 
 export default PandI;
-
