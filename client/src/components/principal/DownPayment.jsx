@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DownPayment = (props) => {
-  const { usdF, price, monthly, down, downStr, interest, Box, HiddenInput, GhostSymbol, Column, OneColumn, updateMC, handleChange } = props;
+  const { usdF, price, monthly, down, downStr, interest, Box, HiddenInput, GhostSymbol, updateMC, handleChange } = props;
 
   return (
     <div>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const LoanProgram = (props) => {
-  const { handleSelect, loan, Column, OneColumn, Box, HiddenInput, GhostSymbol, handleChange } = props;
+  const { handleSelect, loan, Box, HiddenInput, GhostSymbol, handleChange } = props;
 
   const Linky = styled.a`
     text-decoration: none;
@@ -13,8 +13,8 @@ const LoanProgram = (props) => {
 
   return (
     <div>
-      <Column>
-        <OneColumn>
+      <div>
+        <div>
           <form>
             <label>
               Loan program
@@ -25,9 +25,9 @@ const LoanProgram = (props) => {
               </select>
             </label>
           </form>
-        </OneColumn>
+        </div>
 
-        <OneColumn>
+        <div>
           {/* later functionality: invalid with non-pos-int or, >100 
           three decimal points...rounded */}
           <Box>
@@ -39,8 +39,8 @@ const LoanProgram = (props) => {
             />
             <GhostSymbol> % </GhostSymbol>
           </Box>
-        </OneColumn>
-      </Column>
+        </div>
+      </div>
 
       <div>
         {loan === "3.134" &&

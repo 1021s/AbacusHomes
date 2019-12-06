@@ -53,7 +53,7 @@ class Principal extends React.Component {
   }
 
   render() {
-    const { usdF, price, monthly, priceStr, interest, down, downStr, handleChange, handleSubmit, expand, expanded, updateMC } = this.props;
+    const { CaratB, usdF, price, monthly, priceStr, interest, down, downStr, handleChange, handleSubmit, expand, expanded, updateMC } = this.props;
     const { pAndI, loan } = this.state;
     const { handleSelect } = this;
 
@@ -77,24 +77,18 @@ class Principal extends React.Component {
       margin: 5px;
     `;
 
-    const Column = styled.div`
-      column-count: 2;
-    `;
-
-    const OneColumn = styled.div`
-      column-span: 1;
-    `;
-
     return (
       <div>
-        <div><PandI pAndI={pAndI} expand={expand} expanded={expanded} /></div>
+        <div>
+          <PandI pAndI={pAndI} expand={expand} expanded={expanded} CaratB={CaratB} />
+        </div>
         {expanded ? (
           <div>
             <HomePrice usdF={usdF} price={price} priceStr={priceStr} handleChange={handleChange} handleSubmit={handleSubmit} 
             Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} updateMC={updateMC} />
             <DownPayment usdF={usdF} price={price} down={down} interest={interest} downStr={downStr} handleChange={handleChange}
-              Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} Column={Column} OneColumn={OneColumn} />
-            <LoanProgram loan={loan} usdF={usdF} price={price} Column={Column} OneColumn={OneColumn} 
+              Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} />
+            <LoanProgram loan={loan} usdF={usdF} price={price}
             handleChange={handleChange} Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} handleSelect={handleSelect} />
           </div>
         ) : (
