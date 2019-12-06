@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const PTHead = (props) => {
+const UHead = (props) => {
 
-  const { expand, CaratB, expanded, price } = props;
+  const { includeUtilities, expand, CaratB, expanded, price } = props;
   const moPropTax = (price * 0.0101) / 12;
 
   return (
-    <div onClick={() => expand('propertyTaxes')}>
-      <div> Property taxes </div>
-      <div>${Math.round(moPropTax)}/mo</div>
+    <div onClick={() => expand('utilities')}>
+      <div> Utilities </div>
+      <div> {includeUtilities ? `$0/mo` : 'Not included'} </div>
       {expanded ? (
           <CaratB>
             <img src="https://img.icons8.com/color/13/000000/collapse-arrow.png" alt="^" />
@@ -23,4 +23,4 @@ const PTHead = (props) => {
   )
 }
 
-export default PTHead;
+export default UHead;

@@ -174,13 +174,13 @@ class App extends React.Component {
         {/* </MyContext.Provider> */}
         <Mortgage updateMC={updateMC} morInsVal={morInsVal} expand={expand} expanded={mortgageInsurance} CaratB={CaratB} />
         <GrayDiv>
-          <PropertyTaxes expand={expand} expanded={propertyTaxes} CaratB={CaratB} />
+          <PropertyTaxes price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} />
         </GrayDiv>
         <HomeInsurance price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} />
         <GrayDiv>
           <HOAFees expand={expand} expanded={hoaFees} CaratB={CaratB} />
         </GrayDiv>
-        <Utilities expand={expand} expanded={utilities} CaratB={CaratB}/>
+        <Utilities expand={expand} expanded={utilities} CaratB={CaratB} />
         <Footer>
           All calculations are estimates and provided for informational purposes only. Actual amounts may vary.
         </Footer>

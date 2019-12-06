@@ -51,7 +51,7 @@ const PropertyTaxes = (props) => {
 
     return (
       <div>
-        <PTHead expanded={expanded} expand={expand} CaratB={CaratB} />
+        <PTHead price={price} expanded={expanded} expand={expand} CaratB={CaratB} />
         {expanded ? (
           <div>
             <Des>

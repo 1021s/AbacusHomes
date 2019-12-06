@@ -8,7 +8,7 @@ const HIHead = (props) => {
   return (
     <div onClick={() => expand('homeInsurance')}>
       <div> Home insurance </div>
-      <div>{false ? `$${morInsVal}/mo` : 'Not included'}</div>
+      <div> $805/mo </div>
       {expanded ? (
           <CaratB>
             <img src="https://img.icons8.com/color/13/000000/collapse-arrow.png" alt="^" />
