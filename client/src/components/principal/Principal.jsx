@@ -16,34 +16,40 @@ class Principal extends React.Component {
     this.handleSelect = this.handleSelect.bind(this);
   }
 
-  calcPandI(num, len) {
-    let afterDown = this.props.price - this.props.down;
-    let afterInterest = (afterDown * (num / 100));
-    let perMonth = (afterDown + afterInterest) / len;
-
-    
-
-    return Math.round(perMonth);
+  calcPandI(int, len) {
+    let loanAmount = this.props.price - this.props.down;
+    let mInt = (int / 100) / 12;
+    let discountFactor = (Math.pow((1 + mInt), len) - 1) / (mInt * Math.pow((1 + mInt), len));
+    let perMonth = loanAmount / discountFactor;
+    let roundedPerMonth = Math.round(perMonth);
+    return roundedPerMonth;
   }
 
   handleSelect(e) {
-    e.preventDefault();
+    // e.preventDefault();
     let loanLength = 360;
     console.log('handleSelect: ', e.target.value);
-    if (e.target.value === 3.702) {
+    if (e.target.value === '3.702') {
       loanLength = 360;
     }
-    if (e.target.value === 3.563) {
+    if (e.target.value === '3.563') {
       loanLength = 180;
     }
-    if (e.target.value === 3.134) {
+    if (e.target.value === '3.134') {
       loanLength = 360;
     }
+    console.log('loanLength: ', loanLength);
+    let newPandI = this.calcPandI(e.target.value, loanLength);
+    // this.props.updateMC(newPandI, 'principal');
     this.setState({
       loan: e.target.value,
-      pAndI: this.calcPandI(e.target.value, loanLength),
-    }, () => console.log(this.state.pAndI));
+      pAndI: newPandI,
+    }, () => {
+      console.log('handleSelect set pAndI to: ', this.state.pAndI);
+    });
     // this.props.updateMC(this.state.pAndI, 'principal');
+    // () => console.log('handleSelect set pAndI to: ', this.state.pAndI)
+    // () => this.props.updateMC(this.state.pAndI, 'principal')
   }
 
   render() {

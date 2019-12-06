@@ -18,6 +18,7 @@ const PandI = (props) => {
     font-size: 18px;
     background: white;
     border: 0px;
+    align: right;
   `;
 
   const { usdF, price, monthly, expand, expanded, pAndI } = props;
@@ -34,9 +35,13 @@ const PandI = (props) => {
       </OneColumn>
       <OneColumn>
         {expanded ? (
-          <CaratB onClick={expand}> v </CaratB>
+          <CaratB onClick={expand}>
+            <img src="https://img.icons8.com/color/13/000000/collapse-arrow.png" alt="^" />
+          </CaratB>
         ) : (
-          <CaratB onClick={expand}> ^ </CaratB>
+          <CaratB onClick={expand}>
+            <img src="https://img.icons8.com/officexs/12/000000/expand-arrow.png" alt="v" />
+          </CaratB>
         )}
       </OneColumn>
     </Column>

@@ -11,7 +11,6 @@ class App extends React.Component {
       expanded: false,
     };
     this.usdF = this.usdF.bind(this);
-    this.updateMC = this.updateMC.bind(this);
     this.percentConv = this.percentConv.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -108,12 +107,12 @@ class App extends React.Component {
     let newMC = this.state.monthly + val;
     this.setState({
       monthly: (child === 'principal') ? val : newMC,
-    }, () => console.log(this.state.monthly));
+    });
   }
 
   render() {
     const { price, monthly, priceStr, interest, down, downStr, expanded } = this.state;
-    const { usdF, handleChange, handleSubmit, expand, updateMC, handleSelect } = this;
+    const { usdF, handleChange, handleSubmit, expand, updateMC } = this;
     // const MyContext = React.createContext('calculating...');
 
     const FontDiv = styled.div`
@@ -133,7 +132,7 @@ class App extends React.Component {
         <Header monthly={monthly} usdF={usdF} />
         <Principal price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} 
         downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} 
-        expand={expand} expanded={expanded} updateMC={updateMC} handleSelect={handleSelect} />
+        expand={expand} expanded={expanded} updateMC={updateMC} />
         {/* </MyContext.Provider> */}
       </FontDiv>
     );
