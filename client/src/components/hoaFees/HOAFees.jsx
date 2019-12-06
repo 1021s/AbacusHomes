@@ -1,36 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
+import HOAHead from './HOAHead.jsx';
 
-class HOAFees extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      includeInsurance: false,
-      expanded: false,
-    };
-  }
+const HOAFees = (props) => {
 
-  render() {
-    const { expanded } = this.state;
-    // const {  } = this;
-    const { expand, CaratB } = this.props;
+  const { expand, expanded } = props;
 
-    return (
-      <div onClick={() => expand('hoaFees')}>
-        <div> HOA fees </div>
-		<div> $0/mo </div>
-        {expanded ? (
-          <CaratB>
-            <img src="https://img.icons8.com/color/13/000000/collapse-arrow.png" alt="^" />
-          </CaratB>
-        ) : (
-          <CaratB>
-            <img src="https://img.icons8.com/officexs/12/000000/expand-arrow.png" alt="v" />
-          </CaratB>
-        )}
-      </div>
-    )
-  }
+	return (
+    <div>
+      <HOAHead expand={expand} expanded={expanded} />
+      {expanded ? (
+        <div>
+        <form>
+          <label>
+            <input
+              name="hoaFees"
+              type="text"
+              value="$0 /mo"
+              onChange={() => console.log('input rxd')} />
+          </label>
+          </form>
+          <div>
+            Some properties require monthly HOA dues to cover common amenities or services.
+          </div>
+        </div>
+      ) : (
+      <div> </div>
+      )}
+    </div>
+	)
 }
 
 export default HOAFees;
