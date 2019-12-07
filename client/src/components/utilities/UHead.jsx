@@ -20,7 +20,7 @@ const Right = styled.div`
 `;
 
   return (
-    <Flex onClick={() => expand('utilities')}>
+    <Flex onClick={() => expand('utilities')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> Utilities </Head>
         <div> {includeUtilities ? `$0/mo` : 'Not included'} </div>

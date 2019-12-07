@@ -155,6 +155,8 @@ class App extends React.Component {
       background: transparent;
       border: 0px;
       align: right;
+      cursor: pointer;
+      outline: none;
     `;
 
     const Footer = styled.div`
@@ -170,7 +172,7 @@ class App extends React.Component {
     const Box = styled.div`
       border: 2px solid rgba(200, 200, 200, 0.6);
       background: white;
-      max-width: 150px;
+      max-width: 110px;
       margin: 0px;
       padding: 0px;
       ${LabelWrap}:hover & {
@@ -180,6 +182,8 @@ class App extends React.Component {
 
     const HiddenInput = styled.input`
       border: 0px;
+      outline: none;
+      width: 80px;
     `;
 
     const GhostSymbol = styled.span`
@@ -201,11 +205,11 @@ class App extends React.Component {
         {/* </MyContext.Provider> */}
         <Mortgage LabelWrap={LabelWrap} Box={Box} updateMC={updateMC} morInsVal={morInsVal} expand={expand} expanded={mortgageInsurance} CaratB={CaratB} />
         <GrayDiv>
-          <PropertyTaxes propTax={propTax} price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} />
+          <PropertyTaxes HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} propTax={propTax} price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} />
         </GrayDiv>
-        <HomeInsurance price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} />
+        <HomeInsurance HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} />
         <GrayDiv>
-          <HOAFees expand={expand} expanded={hoaFees} CaratB={CaratB} />
+          <HOAFees HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} expand={expand} expanded={hoaFees} CaratB={CaratB} />
         </GrayDiv>
         <Utilities expand={expand} expanded={utilities} CaratB={CaratB} />
         <Footer>

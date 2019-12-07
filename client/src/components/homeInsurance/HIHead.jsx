@@ -19,7 +19,7 @@ const HIHead = (props) => {
   `;
 
   return (
-    <Flex onClick={() => expand('homeInsurance')}>
+    <Flex onClick={() => expand('homeInsurance')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> Home insurance </Head>
         <div> $805/mo </div>

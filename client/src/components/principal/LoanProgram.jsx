@@ -19,10 +19,10 @@ const LoanProgram = (props) => {
     <div>
       <div>
         <div>
-          <form>
+          <form >
             <label>
               Loan program
-              <Selw value={loan} onChange={handleSelect}>
+              <Selw value={loan} onChange={handleSelect} style={{ cursor: 'pointer' }}>
                 <option value="3.702">30-year fixed</option>
                 <option value="3.563">15-year fixed</option>
                 <option value="3.134">5/1 ARM</option>
@@ -53,7 +53,7 @@ const LoanProgram = (props) => {
       <div>
         {loan === "3.134" &&
           <div> 5/1 ARM rates (and monthly payment) may change after the initial fixed-rate period. </div>}
-        <Linky href="https://bit.ly/2PbhngT">See current rates</Linky>
+        <Linky href="https://bit.ly/2DVghkg">See current rates</Linky>
       </div>
 
     </div>

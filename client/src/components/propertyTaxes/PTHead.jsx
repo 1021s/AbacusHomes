@@ -20,7 +20,7 @@ const PTHead = (props) => {
   `;
 
   return (
-    <Flex onClick={() => expand('propertyTaxes')}>
+    <Flex onClick={() => expand('propertyTaxes')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> Property taxes </Head>
         <div>${Math.round(moPropTax)}/mo</div>

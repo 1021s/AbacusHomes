@@ -19,7 +19,7 @@ const MIHead = (props) => {
   `;
 
   return (
-    <Flex onClick={() => expand('mortgageInsurance')}>
+    <Flex onClick={() => expand('mortgageInsurance')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> Mortgage insurance </Head>
         <div>{includeInsurance ? `$${morInsVal}/mo` : 'Not included'}</div>

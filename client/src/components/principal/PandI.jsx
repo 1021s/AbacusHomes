@@ -19,7 +19,10 @@ const PandI = (props) => {
   `;
 
   return (
-    <Flex onClick={() => expand('principalAndInterest')}>
+    <Flex
+      onClick={() => expand('principalAndInterest')}
+      style={{ cursor: 'pointer' }}
+    >
       <div>
         <Head>
           Principal & Interest

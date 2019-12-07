@@ -19,7 +19,7 @@ const HOAHead = (props) => {
   `;
 
   return (
-    <Flex onClick={() => expand('hoaFees')}>
+    <Flex onClick={() => expand('hoaFees')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> HOA fees </Head>
         <div> $0/mo </div>

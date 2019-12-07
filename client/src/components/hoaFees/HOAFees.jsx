@@ -4,7 +4,7 @@ import HOAHead from './HOAHead.jsx';
 
 const HOAFees = (props) => {
 
-  const { expand, expanded, CaratB } = props;
+  const { Box, HiddenInput, GhostSymbol, LabelWrap, expand, expanded, CaratB } = props;
 
   const Des = styled.div`
     font-size: 8px;
@@ -17,13 +17,17 @@ const HOAFees = (props) => {
       {expanded ? (
         <div>
           <form>
-            <label>
-              <input
+            <LabelWrap>
+              <Box>
+              <GhostSymbol> $ </GhostSymbol>
+              <HiddenInput
                 name="hoaFees"
                 type="text"
-                value="$0 /mo"
+                value="0"
                 onChange={() => console.log('input rxd')} />
-            </label>
+              <GhostSymbol> /mo </GhostSymbol>
+              </Box>
+            </LabelWrap>
           </form>
           <Des>
             Some properties require monthly HOA dues to cover common amenities or services.

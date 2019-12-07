@@ -4,7 +4,7 @@ import HIHead from './HIHead.jsx';
 
 const HomeInsurance = (props) => {
 
-    const { price, expand, CaratB, morInsVal, expanded } = props;
+    const { Box, HiddenInput, GhostSymbol, LabelWrap, price, expand, CaratB, morInsVal, expanded } = props;
 
     const Des = styled.div`
       font-size: 8px;
@@ -17,13 +17,17 @@ const HomeInsurance = (props) => {
         {expanded ? (
           <div>
             <form>
-              <label>
-                <input
-                  name="homeInsurance"
-                  type="text"
-                  value="$ 9,660 /year"
-                  onChange={() => console.log('input rxd')} />
-              </label>
+              <LabelWrap>
+                <Box>
+                  <GhostSymbol> % </GhostSymbol>
+                  <HiddenInput
+                    name="homeInsurance"
+                    type="text"
+                    value="9,660"
+                    onChange={() => console.log('input rxd')} />
+                    <GhostSymbol> /year </GhostSymbol>
+                </Box>
+              </LabelWrap>
             </form>
             <Des>
               Most lenders require homeowners insurance, which protects your home and property.
