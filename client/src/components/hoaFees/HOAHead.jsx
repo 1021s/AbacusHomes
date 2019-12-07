@@ -8,6 +8,7 @@ const HOAHead = (props) => {
   const Head = styled.div`
     font-size: 9px;
     font-weight: 600;
+    text-shadow: 0px 1.2px 6px rgba(176,176,176,0.75);
   `;
 
   const Flex = styled.div`

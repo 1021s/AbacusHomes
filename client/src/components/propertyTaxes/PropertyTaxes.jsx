@@ -76,7 +76,7 @@ const PropertyTaxes = (props) => {
                   <HiddenInput
                     name="taxRate"
                     type="text"
-                    value={propTax}
+                    value={`   ${propTax}`}
                     onChange={() => console.log('input rxd')}
                   />
                   <GhostSymbol> % </GhostSymbol>

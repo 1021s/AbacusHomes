@@ -8,6 +8,10 @@ const DownPayment = (props) => {
     display: flex;
   `;
 
+  const LineUp = styled.div`
+    flex: 0 0 auto;
+  `;
+
   return (
     <div>
       <div>

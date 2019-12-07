@@ -13,6 +13,8 @@ const LoanProgram = (props) => {
 
   const Selw = styled.select`
     background: white;
+    font-size: 8px;
+    font-weight: 300;
   `;
 
   const Flox = styled.div`
@@ -23,7 +25,7 @@ const LoanProgram = (props) => {
     <div>
       <div>
         <div>
-          <form >
+          <form>
             <label>
               Loan program
               <Selw value={loan} onChange={handleSelect} style={{ cursor: 'pointer' }}>
@@ -40,8 +42,8 @@ const LoanProgram = (props) => {
           three decimal points...rounded */}
           <form>
             <LabelWrap>
-              <Box>
               Interest Rate
+              <Box>
                 <HiddenInput
                   type="text"
                   id="interestRate"

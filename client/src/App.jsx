@@ -138,6 +138,8 @@ class App extends React.Component {
       letter-spacing: 0px;
       text-transform: none;
       margin: 0px;
+      border: .5px solid rgba(200, 200, 200, 0.4);
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
     `;
 
     const GrayDiv = styled.div`
@@ -166,24 +168,29 @@ class App extends React.Component {
     `;
 
     const LabelWrap = styled.label`
-    
     `;
 
     const Box = styled.div`
-      border: 2px solid rgba(200, 200, 200, 0.6);
+      border: 1px solid rgba(200, 200, 200, 0.6);
       background: white;
-      max-width: 110px;
+      ${'' /* max-width: 110px; */}
+      width: 98%;
       margin: 0px;
       padding: 0px;
+      border-radius: 3px;
+      box-shadow: inset 0 0 3px rgba(200, 200, 200, 0.5);
       ${LabelWrap}:hover & {
         border-color: rgb(0, 106, 255);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
       }
     `;
 
     const HiddenInput = styled.input`
       border: 0px;
       outline: none;
-      width: 80px;
+      width: 82%;
+      font-weight: 300;
+      font-size: 8px;
     `;
 
     const GhostSymbol = styled.span`
@@ -191,8 +198,8 @@ class App extends React.Component {
       font-size: 10px;
       font-weight: 500;
       font-shadow: 1px rgba(211, 211, 211, 0.8)
-      padding: 5px;
-      margin: 5px;
+      padding: 1px;
+      margin: 1px;
     `;
 
     return (
