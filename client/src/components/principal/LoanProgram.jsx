@@ -15,6 +15,10 @@ const LoanProgram = (props) => {
     background: white;
   `;
 
+  const Flox = styled.div`
+    display: flex;
+  `;
+
   return (
     <div>
       <div>
@@ -37,6 +41,7 @@ const LoanProgram = (props) => {
           <form>
             <LabelWrap>
               <Box>
+              Interest Rate
                 <HiddenInput
                   type="text"
                   id="interestRate"
