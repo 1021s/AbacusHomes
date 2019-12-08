@@ -4,7 +4,7 @@ import HOAHead from './HOAHead.jsx';
 
 const HOAFees = (props) => {
 
-  const { Box, HiddenInput, GhostSymbol, LabelWrap, expand, expanded, CaratB } = props;
+  const { usdF, Box, HiddenInput, GhostSymbol, LabelWrap, expand, expanded, CaratB } = props;
 
   const Des = styled.div`
     font-size: 8px;
@@ -13,7 +13,7 @@ const HOAFees = (props) => {
 
 	return (
     <div>
-      <HOAHead expand={expand} expanded={expanded} CaratB={CaratB} />
+      <HOAHead usdF={usdF} expand={expand} expanded={expanded} CaratB={CaratB} />
       {expanded ? (
         <div>
           <form>

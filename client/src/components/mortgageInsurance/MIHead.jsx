@@ -27,12 +27,16 @@ const MIHead = (props) => {
       </div>
       <Right>
         {expanded ? (
-            <CaratB>
-              <img src="https://img.icons8.com/color/13/000000/collapse-arrow.png" alt="^" />
-            </CaratB>
+          <CaratB>
+            <img
+              src="https://img.icons8.com/small/16/1277e1/expand-arrow.png"
+              alt="v"
+              style={{ transform: 'rotate(180deg)' }}
+            />
+          </CaratB>
         ) : (
           <CaratB>
-            <img src="https://img.icons8.com/officexs/12/000000/expand-arrow.png" alt="v" />
+            <img src="https://img.icons8.com/small/16/1277e1/expand-arrow.png" alt="v" />
           </CaratB>
         )}
       </Right>

@@ -4,7 +4,7 @@ import HIHead from './HIHead.jsx';
 
 const HomeInsurance = (props) => {
 
-    const { Box, HiddenInput, GhostSymbol, LabelWrap, price, expand, CaratB, morInsVal, expanded } = props;
+    const { usdF, Box, HiddenInput, GhostSymbol, LabelWrap, price, expand, CaratB, morInsVal, expanded } = props;
 
     const Des = styled.div`
       font-size: 8px;
@@ -13,7 +13,7 @@ const HomeInsurance = (props) => {
 
     return (
       <div>
-        <HIHead expanded={expanded} expand={expand} CaratB={CaratB} />
+        <HIHead usdF={usdF} expanded={expanded} expand={expand} CaratB={CaratB} />
         {expanded ? (
           <div>
             <form>

@@ -26,7 +26,7 @@ const DownPayment = (props) => {
               <HiddenInput
                 type="text"
                 id="down"
-                value={down}
+                value={usdF(down, 'no')}
                 onChange={handleChange}
               />
             </Box>

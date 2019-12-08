@@ -46,22 +46,22 @@ class Principal extends React.Component {
       pAndI: newPandI,
     }, () => {
       console.log('handleSelect set pAndI to: ', this.state.pAndI);
-    });
+    }, () => this.props.updateMC(this.state.pAndI, 'principal'));
     // this.props.updateMC(this.state.pAndI, 'principal');
     // () => console.log('handleSelect set pAndI to: ', this.state.pAndI)
     // () => this.props.updateMC(this.state.pAndI, 'principal')
   }
 
   render() {
-    const { LabelWrap, Box, HiddenInput, GhostSymbol, CaratB, usdF, price, monthly, priceStr, interest, down, downStr,
-      handleChange, handleSubmit, expand, expanded, updateMC } = this.props;
+    const { LabelWrap, Box, HiddenInput, GhostSymbol, CaratB, usdF, price, monthly, priceStr,
+      interest, down, downStr, handleChange, handleSubmit, expand, expanded, updateMC } = this.props;
     const { pAndI, loan } = this.state;
     const { handleSelect } = this;
 
     return (
       <div>
         <div>
-          <PandI pAndI={pAndI} expand={expand} expanded={expanded} CaratB={CaratB} />
+          <PandI usdF={usdF} pAndI={pAndI} expand={expand} expanded={expanded} CaratB={CaratB} />
         </div>
         {expanded ? (
           <div>

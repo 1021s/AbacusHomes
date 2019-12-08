@@ -4,7 +4,7 @@ import PTHead from './PTHead.jsx';
 
 const PropertyTaxes = (props) => {
 
-  const { Box, HiddenInput, GhostSymbol, LabelWrap, propTax, price, expand, CaratB, morInsVal, expanded } = props;
+  const { usdF, Box, HiddenInput, GhostSymbol, LabelWrap, propTax, price, expand, CaratB, morInsVal, expanded } = props;
 
   const Des = styled.div`
     font-size: 8px;
@@ -55,9 +55,13 @@ const PropertyTaxes = (props) => {
     border: 0;
   `;
 
+  const Buffer = styled.span`
+    padding: 0px 6px 0px 12px;
+  `;
+
   return (
     <div>
-      <PTHead price={price} expanded={expanded} expand={expand} CaratB={CaratB} />
+      <PTHead usdF={usdF} price={price} expanded={expanded} expand={expand} CaratB={CaratB} />
       {expanded ? (
         <div>
           <Des>
@@ -68,7 +72,11 @@ const PropertyTaxes = (props) => {
             <C1a> Home price </C1a>
             <C2a> Tax rate </C2a>
             <C3a> </C3a>
-            <C1b> ${price}  X </C1b>
+            <C1b>
+              {usdF(price)}
+              /mo
+              <Buffer> X </Buffer>
+            </C1b>
             <C2b>
               <form>
               <LabelWrap>
@@ -76,7 +84,8 @@ const PropertyTaxes = (props) => {
                   <HiddenInput
                     name="taxRate"
                     type="text"
-                    value={`   ${propTax}`}
+                    style={{paddingLeft: '8px'}}
+                    value={propTax}
                     onChange={() => console.log('input rxd')}
                   />
                   <GhostSymbol> % </GhostSymbol>
@@ -84,7 +93,11 @@ const PropertyTaxes = (props) => {
               </LabelWrap>
               </form>
             </C2b>
-            <C3b> = ${Math.round(price * 0.0101)}/year </C3b>
+            <C3b>
+              <Buffer> = </Buffer>
+              {usdF(price * 0.0101)}
+              /year
+            </C3b>
           </Col>
         </div>
       ) : (

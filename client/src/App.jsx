@@ -64,15 +64,45 @@ class App extends React.Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  usdF(num) {
-    let numStr = String(num);
-    let numArr = [...numStr];
-    // million comma
-    if (numArr.length > 6) { numArr.splice(numArr.length - 6, 0, ','); }
-    // thousand comma
-    numArr.splice(numArr.length - 3, 0, ',');
-    numArr.unshift('$');
-    return numArr.join('');
+  usdF(num, withSym = true) {
+    // let numStr = String(num);
+    // let numArr = [...numStr];
+    // // million comma
+    // if (numArr.length > 6) { numArr.splice(numArr.length - 6, 0, ','); }
+    // // thousand comma
+    // numArr.splice(numArr.length - 3, 0, ',');
+    // numArr.unshift('$');
+    // return numArr.join('');
+  //   withSym ? 
+  //     new Intl.NumberFormat('en-US',
+  //       { 
+  //         style: 'currency',
+  //         currency: 'USD',
+  //         minimumFractionDigits: 0,
+  //         maximumFractionDigits: 0,
+  //       }).format(num)
+  //   : 
+  //     new Intl.NumberFormat('en-US',
+  //       { 
+  //         minimumFractionDigits: 0,
+  //         maximumFractionDigits: 0,
+  //       }).format(num)
+  
+    if (withSym === true) {
+      return new Intl.NumberFormat('en-US',
+        { 
+          style: 'currency',
+          currency: 'USD',
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).format(num);
+    } else {
+      return new Intl.NumberFormat('en-US',
+        { 
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).format(num);
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -99,7 +129,7 @@ class App extends React.Component {
         interest: +((event.target.value / this.state.price) * 100).toFixed(2),
       }, console.log('this.state.price: ', this.state.price));
     }
-  };
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -144,6 +174,11 @@ class App extends React.Component {
 
     const GrayDiv = styled.div`
       background: #f2f2f2;
+      padding: 6px 6px 6px 10px;
+    `;
+
+    const WhiteDiv = styled.div`
+      padding: 6px 6px 6px 10px;
     `;
 
     const CaratB = styled.button`
@@ -159,12 +194,14 @@ class App extends React.Component {
       align: right;
       cursor: pointer;
       outline: none;
+      padding: 10px;
     `;
 
     const Footer = styled.div`
       font-size: 6px;
       font-weight: 100;
       margin-bottom: 1%;
+      padding: 6px 6px 6px 10px;
     `;
 
     const LabelWrap = styled.label`
@@ -204,21 +241,25 @@ class App extends React.Component {
 
     return (
       <FontDiv>
-        {/* <MyContext.Provider value={price}> */}
         <Header monthly={monthly} usdF={usdF} />
         <GrayDiv>
           <Principal HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} expand={expand} expanded={principalAndInterest} updateMC={updateMC} CaratB={CaratB} />
         </GrayDiv>
-        {/* </MyContext.Provider> */}
-        <Mortgage LabelWrap={LabelWrap} Box={Box} updateMC={updateMC} morInsVal={morInsVal} expand={expand} expanded={mortgageInsurance} CaratB={CaratB} />
+        <WhiteDiv>
+          <Mortgage LabelWrap={LabelWrap} Box={Box} updateMC={updateMC} morInsVal={morInsVal} expand={expand} expanded={mortgageInsurance} CaratB={CaratB} />
+        </WhiteDiv>
         <GrayDiv>
-          <PropertyTaxes HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} propTax={propTax} price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} />
+          <PropertyTaxes HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} propTax={propTax} price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} usdF={usdF} />
         </GrayDiv>
-        <HomeInsurance HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} />
+        <WhiteDiv>
+          <HomeInsurance HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} usdF={usdF} />
+        </WhiteDiv>
         <GrayDiv>
-          <HOAFees HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} expand={expand} expanded={hoaFees} CaratB={CaratB} />
+          <HOAFees HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} expand={expand} expanded={hoaFees} CaratB={CaratB} usdF={usdF} />
         </GrayDiv>
-        <Utilities expand={expand} expanded={utilities} CaratB={CaratB} />
+        <WhiteDiv>
+          <Utilities expand={expand} expanded={utilities} CaratB={CaratB} />
+        </WhiteDiv>
         <Footer>
           All calculations are estimates and provided for informational purposes only. Actual amounts may vary.
         </Footer>

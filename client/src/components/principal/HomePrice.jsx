@@ -18,7 +18,7 @@ const HomePrice = (props) => {
               id="price"
               // defaultValue={priceStr}
               onChange={handleChange}
-              value={price}
+              value={usdF(price, 'no')}
             />
           </Box>
       </LabelWrap>

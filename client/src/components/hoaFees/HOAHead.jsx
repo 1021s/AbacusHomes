@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const HOAHead = (props) => {
 
-  const { expand, CaratB, expanded } = props;
+  const { usdF, expand, CaratB, expanded } = props;
 
   const Head = styled.div`
     font-size: 9px;
@@ -23,16 +23,20 @@ const HOAHead = (props) => {
     <Flex onClick={() => expand('hoaFees')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> HOA fees </Head>
-        <div> $0/mo </div>
+        <div> {usdF(0)}/mo </div>
       </div>
       <Right>
         {expanded ? (
           <CaratB>
-            <img src="https://img.icons8.com/color/13/000000/collapse-arrow.png" alt="^" />
+            <img
+              src="https://img.icons8.com/small/16/1277e1/expand-arrow.png"
+              alt="v"
+              style={{ transform: 'rotate(180deg)' }}
+            />
           </CaratB>
         ) : (
           <CaratB>
-            <img src="https://img.icons8.com/officexs/12/000000/expand-arrow.png" alt="v" />
+          <img src="https://img.icons8.com/small/16/1277e1/expand-arrow.png" alt="v" />
           </CaratB>
         )}
       </Right>

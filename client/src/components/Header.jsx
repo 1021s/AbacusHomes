@@ -10,12 +10,14 @@ const Header = (props) => {
     font-size: 14px;
     margin: 0px;
     text-shadow: 0px .4px 2px rgba(2,48,0,0.2);
+    padding: 4px;
   `;
 
   const Header = styled.div`
     font-size: 14px;
     font-stretch: expanded;
     text-shadow: 0px 1px 5px rgba(176,176,176,0.67);
+    padding: 6px 6px 6px 7px;
   `;
 
   const SubHeader = styled.div`
@@ -27,10 +29,18 @@ const Header = (props) => {
 
   return (
     <div>
-      <Header>Monthly Cost</Header>
-      <hr />
+      <Header>
+        Monthly Cost
+      </Header>
+      <hr style={{
+        all: 'initials',
+        border: '0.2px solid rgb(200, 200, 200)',
+        margin: '4px',
+        boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.085)',
+      }}
+      />
       <GreenCost>
-        {usdF(monthly)}
+        {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(monthly)}
       </GreenCost>
       <SubHeader>
           Estimated monthly cost
