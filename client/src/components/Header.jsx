@@ -40,7 +40,7 @@ const Header = (props) => {
       }}
       />
       <GreenCost>
-        {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(monthly)}
+        {usdF(monthly)}
       </GreenCost>
       <SubHeader>
           Estimated monthly cost

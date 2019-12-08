@@ -19,6 +19,7 @@ class Mortgage extends React.Component {
     this.setState({
       [name]: value,
     });
+    // () => this.props.flip());
     // , () => this.props.updateMC(value, 'mortgageInsurance')
   }
 

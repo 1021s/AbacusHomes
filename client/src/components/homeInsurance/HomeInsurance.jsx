@@ -20,7 +20,7 @@ const HomeInsurance = (props) => {
             <form>
               <LabelWrap>
                 <Box>
-                  <GhostSymbol> % </GhostSymbol>
+                  <GhostSymbol> $ </GhostSymbol>
                   <HiddenInput
                     id="homeInsuranceRate"
                     type="text"

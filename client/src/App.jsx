@@ -21,7 +21,9 @@ class App extends React.Component {
       utilities: false,
       propTax: 1.01,
       hoaFeeRate: 0,
+      inclHomeIns: false,
     };
+    this.moCalc = this.moCalc.bind(this);
     this.insCalc = this.insCalc.bind(this);
     this.usdF = this.usdF.bind(this);
     this.percentConv = this.percentConv.bind(this);
@@ -29,6 +31,7 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.expand = this.expand.bind(this);
     this.updateMC = this.updateMC.bind(this);
+    this.flip = this.flip.bind(this);
   }
 
   componentDidMount() {
@@ -53,18 +56,46 @@ class App extends React.Component {
       .then((data) => this.setState({
         price: data[(Math.floor(Math.random() * 100))].price,
       }))
+
       .then(() => this.setState({
-        monthly: Math.round(this.state.price / 360),
         priceStr: this.usdF(this.state.price),
         down: this.state.price * (this.state.interest / 100),
-      }))
-      .then(() => this.setState({
         downStr: this.usdF(this.state.down),
-        morInsVal: Math.round(this.state.monthly * .05),
-        homeInsuranceRate: this.insCalc(this.state.price)
+        homeInsuranceRate: this.insCalc(this.state.price),
+        monthly: Math.round(this.state.price / 360),
       }))
+
+      .then(() => this.setState({
+        morInsVal: Math.round(this.state.monthly * .05),
+      }, () => console.log('monthly before calc: ', this.state.monthly, this.moCalc)))
+
+      .then(() => this.setState({
+        monthly: this.moCalc(),
+      }, () => console.log('monthly: ', this.state.monthly)))
+
       .catch((err) => console.log('fetch catch engaged...', err));
   }
+
+  flip(arg) {
+    this.setState({
+      inclHomeIns: !this.state.inclHomeIns,
+    })
+  }
+
+  moCalc() {
+    console.log('monthly: ', this.state.monthly)
+    console.log('morInsVal: ', this.state.morInsVal)
+    console.log('propTax: ', this.state.propTax)
+    console.log('homeInsuranceRate: ', this.state.homeInsuranceRate)
+    console.log('hoaFeeRate: ', this.state.hoaFeeRate)
+
+    let mo = this.state.monthly + this.state.morInsVal + (this.state.price * ((this.state.propTax / 100) / 12)) + this.state.hoaFeeRate;
+      if (this.state.inclHomeIns === true) {
+        mo + (this.state.homeInsuranceRate / 12)
+      }
+    return mo;
+  }
+  // + this.state.utilitesRate
 
   insCalc(p) {
     let segment = Math.floor(p / 100000);
@@ -137,6 +168,7 @@ class App extends React.Component {
         interest: +((event.target.value / this.state.price) * 100).toFixed(2),
       }, console.log('this.state.price: ', this.state.price));
     }
+    this.updateMC();
   }
 
   handleSubmit(e) {
@@ -150,19 +182,23 @@ class App extends React.Component {
     });
   }
 
-  updateMC(val, child) {
-    console.log('updating est monthly cost', val);
-    let newMC = this.state.monthly + val;
+  updateMC() {
+  // updateMC(val, child) {
+    // console.log('updating est monthly cost', val);
+    // let newMC = this.state.monthly + val;
+    // this.setState({
+    //   monthly: (child === 'principal') ? val : newMC,
+    // });
     this.setState({
-      monthly: (child === 'principal') ? val : newMC,
-    });
+      monthly: this.moCalc(),
+    })
   }
 
   render() {
     const { propTax, price, monthly, priceStr, interest, down, downStr,
       principalAndInterest, mortgageInsurance, propertyTaxes, homeInsurance, homeInsuranceRate, 
       hoaFees, utilities, morInsVal, hoaFeeRate } = this.state;
-    const { usdF, handleChange, handleSubmit, expand, updateMC } = this;
+    const { usdF, handleChange, handleSubmit, expand, updateMC, flip } = this;
     // const MyContext = React.createContext('calculating...');
 
     const FontDiv = styled.div`
@@ -253,7 +289,7 @@ class App extends React.Component {
           <Principal HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} expand={expand} expanded={principalAndInterest} updateMC={updateMC} CaratB={CaratB} />
         </GrayDiv>
         <WhiteDiv>
-          <Mortgage LabelWrap={LabelWrap} Box={Box} updateMC={updateMC} morInsVal={morInsVal} expand={expand} expanded={mortgageInsurance} CaratB={CaratB} />
+          <Mortgage flip={flip} LabelWrap={LabelWrap} Box={Box} updateMC={updateMC} morInsVal={morInsVal} expand={expand} expanded={mortgageInsurance} CaratB={CaratB} />
         </WhiteDiv>
         <GrayDiv>
           <PropertyTaxes handleChange={handleChange} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} propTax={propTax} price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} usdF={usdF} />
