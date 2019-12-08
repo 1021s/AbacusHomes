@@ -20,8 +20,9 @@ class App extends React.Component {
       hoaFees: false,
       utilities: false,
       propTax: 1.01,
-      homeInsuranceRate: 
+      hoaFeeRate: 0,
     };
+    this.insCalc = this.insCalc.bind(this);
     this.usdF = this.usdF.bind(this);
     this.percentConv = this.percentConv.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -60,8 +61,14 @@ class App extends React.Component {
       .then(() => this.setState({
         downStr: this.usdF(this.state.down),
         morInsVal: Math.round(this.state.monthly * .05),
+        homeInsuranceRate: this.insCalc(this.state.price)
       }))
       .catch((err) => console.log('fetch catch engaged...', err));
+  }
+
+  insCalc(p) {
+    let segment = Math.floor(p / 100000);
+    return segment * 244;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -74,17 +81,17 @@ class App extends React.Component {
     // numArr.splice(numArr.length - 3, 0, ',');
     // numArr.unshift('$');
     // return numArr.join('');
-  //   withSym ? 
+  //   withSym ?
   //     new Intl.NumberFormat('en-US',
-  //       { 
+  //       {
   //         style: 'currency',
   //         currency: 'USD',
   //         minimumFractionDigits: 0,
   //         maximumFractionDigits: 0,
   //       }).format(num)
-  //   : 
+  //   :
   //     new Intl.NumberFormat('en-US',
-  //       { 
+  //       {
   //         minimumFractionDigits: 0,
   //         maximumFractionDigits: 0,
   //       }).format(num)
@@ -153,8 +160,8 @@ class App extends React.Component {
 
   render() {
     const { propTax, price, monthly, priceStr, interest, down, downStr,
-      principalAndInterest, mortgageInsurance, propertyTaxes, homeInsurance,
-      hoaFees, utilities, morInsVal } = this.state;
+      principalAndInterest, mortgageInsurance, propertyTaxes, homeInsurance, homeInsuranceRate, 
+      hoaFees, utilities, morInsVal, hoaFeeRate } = this.state;
     const { usdF, handleChange, handleSubmit, expand, updateMC } = this;
     // const MyContext = React.createContext('calculating...');
 
@@ -252,10 +259,10 @@ class App extends React.Component {
           <PropertyTaxes handleChange={handleChange} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} propTax={propTax} price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} usdF={usdF} />
         </GrayDiv>
         <WhiteDiv>
-          <HomeInsurance handleChange={handleChange}  HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} usdF={usdF} />
+          <HomeInsurance homeInsuranceRate={homeInsuranceRate} handleChange={handleChange}  HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} usdF={usdF} />
         </WhiteDiv>
         <GrayDiv>
-          <HOAFees handleChange={handleChange} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} expand={expand} expanded={hoaFees} CaratB={CaratB} usdF={usdF} />
+          <HOAFees hoaFeeRate={hoaFeeRate} handleChange={handleChange} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} expand={expand} expanded={hoaFees} CaratB={CaratB} usdF={usdF} />
         </GrayDiv>
         <WhiteDiv>
           <Utilities expand={expand} expanded={utilities} CaratB={CaratB} />

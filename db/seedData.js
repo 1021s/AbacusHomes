@@ -12,7 +12,7 @@ const db = require('./index.js');
 
 const pricer = () => faker.random.number({
   min: 10500,
-  max: 10500500,
+  max: 5500500,
   precision: 500,
 });
 

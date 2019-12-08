@@ -4,7 +4,7 @@ import HIHead from './HIHead.jsx';
 
 const HomeInsurance = (props) => {
 
-    const { homeInsurance, handleChange, usdF, Box, HiddenInput, GhostSymbol, LabelWrap, price, expand, CaratB, morInsVal, expanded } = props;
+    const { homeInsuranceRate, homeInsurance, handleChange, usdF, Box, HiddenInput, GhostSymbol, LabelWrap, price, expand, CaratB, morInsVal, expanded } = props;
 
     const Des = styled.div`
       font-size: 8px;
@@ -14,7 +14,7 @@ const HomeInsurance = (props) => {
 
     return (
       <div>
-        <HIHead usdF={usdF} expanded={expanded} expand={expand} CaratB={CaratB} />
+        <HIHead homeInsuranceRate={homeInsuranceRate} usdF={usdF} expanded={expanded} expand={expand} CaratB={CaratB} />
         {expanded ? (
           <div>
             <form>
@@ -22,9 +22,9 @@ const HomeInsurance = (props) => {
                 <Box>
                   <GhostSymbol> % </GhostSymbol>
                   <HiddenInput
-                    id="homeInsurance"
+                    id="homeInsuranceRate"
                     type="text"
-                    value={homeInsurance}
+                    value={homeInsuranceRate}
                     onChange={handleChange}
                   />
                     <GhostSymbol> /year </GhostSymbol>

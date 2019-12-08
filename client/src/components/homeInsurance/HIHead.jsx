@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const HIHead = (props) => {
 
-  const { usdF, expand, CaratB, expanded } = props;
+  const { homeInsuranceRate, usdF, expand, CaratB, expanded } = props;
 
   const Head = styled.div`
     font-size: 9px;
@@ -23,7 +23,7 @@ const HIHead = (props) => {
     <Flex onClick={() => expand('homeInsurance')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> Home insurance </Head>
-        <div> {usdF(805)}/mo </div>
+        <div> {usdF(homeInsuranceRate / 12)}/mo </div>
       </div>
       <Right>
         {expanded ? (

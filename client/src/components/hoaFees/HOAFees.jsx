@@ -4,7 +4,7 @@ import HOAHead from './HOAHead.jsx';
 
 const HOAFees = (props) => {
 
-  const { usdF, Box, HiddenInput, GhostSymbol, LabelWrap, expand, expanded, CaratB } = props;
+  const { handleChange, hoaFeeRate, usdF, Box, HiddenInput, GhostSymbol, LabelWrap, expand, expanded, CaratB } = props;
 
   const Des = styled.div`
     font-size: 8px;
@@ -13,7 +13,7 @@ const HOAFees = (props) => {
 
   return (
     <div>
-      <HOAHead usdF={usdF} expand={expand} expanded={expanded} CaratB={CaratB} />
+      <HOAHead hoaFeeRate={hoaFeeRate} usdF={usdF} expand={expand} expanded={expanded} CaratB={CaratB} />
       {expanded ? (
         <div>
           <form>
@@ -21,10 +21,10 @@ const HOAFees = (props) => {
               <Box>
                 <GhostSymbol> $ </GhostSymbol>
                 <HiddenInput
-                  name="hoaFees"
+                  id="hoaFeeRate"
                   type="text"
-                  value="0"
-                  onChange={() => console.log('input rxd')}
+                  value={hoaFeeRate}
+                  onChange={handleChange}
                 />
                 <GhostSymbol> /mo </GhostSymbol>
               </Box>

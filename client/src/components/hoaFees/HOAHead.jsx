@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const HOAHead = (props) => {
 
-  const { usdF, expand, CaratB, expanded } = props;
+  const { hoaFeeRate, usdF, expand, CaratB, expanded } = props;
 
   const Head = styled.div`
     font-size: 9px;
@@ -23,7 +23,7 @@ const HOAHead = (props) => {
     <Flex onClick={() => expand('hoaFees')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> HOA fees </Head>
-        <div> {usdF(0)}/mo </div>
+        <div> {usdF(hoaFeeRate)}/mo </div>
       </div>
       <Right>
         {expanded ? (
