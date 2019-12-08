@@ -10,17 +10,17 @@ const HomePrice = (props) => {
       <LabelWrap>
         {/* minimum price === 5,000 
         box-color becomes red and "Invalid home price" appears below*/}
-        Home price
-          <Box>
-            <GhostSymbol> $ </GhostSymbol>
-            <HiddenInput
-              type="text"
-              id="price"
-              // defaultValue={priceStr}
-              onChange={handleChange}
-              value={usdF(price, 'no')}
-            />
-          </Box>
+        <span style={{ fontWeight: 600 }}>Home price</span>
+        <Box>
+          <GhostSymbol> $ </GhostSymbol>
+          <HiddenInput
+            type="text"
+            id="price"
+            // defaultValue={priceStr}
+            onChange={handleChange}
+            value={usdF(price, 'no')}
+          />
+        </Box>
       </LabelWrap>
     </form>
   );

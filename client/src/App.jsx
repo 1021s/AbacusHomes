@@ -87,7 +87,7 @@ class App extends React.Component {
   //         minimumFractionDigits: 0,
   //         maximumFractionDigits: 0,
   //       }).format(num)
-  
+
     if (withSym === true) {
       return new Intl.NumberFormat('en-US',
         { 
@@ -235,7 +235,6 @@ class App extends React.Component {
       font-size: 10px;
       font-weight: 500;
       font-shadow: 1px rgba(211, 211, 211, 0.8)
-      padding: 1px;
       margin: 1px;
     `;
 

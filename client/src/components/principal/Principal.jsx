@@ -70,7 +70,7 @@ class Principal extends React.Component {
             <DownPayment usdF={usdF} price={price} down={down} interest={interest} downStr={downStr} handleChange={handleChange}
               LabelWrap={LabelWrap} Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} />
             <LoanProgram loan={loan} usdF={usdF} price={price}
-              LabelWrap={LabelWrap} handleChange={handleChange} Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} handleSelect={handleSelect} />
+              LabelWrap={LabelWrap} handleChange={handleChange} Box={Box} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} handleSelect={handleSelect} CaratB={CaratB} />
           </div>
         ) : (
           <div> </div>

@@ -11,7 +11,7 @@ const HOAFees = (props) => {
     font-weight: 400;
   `;
 
-	return (
+  return (
     <div>
       <HOAHead usdF={usdF} expand={expand} expanded={expanded} CaratB={CaratB} />
       {expanded ? (
@@ -19,13 +19,14 @@ const HOAFees = (props) => {
           <form>
             <LabelWrap>
               <Box>
-              <GhostSymbol> $ </GhostSymbol>
-              <HiddenInput
-                name="hoaFees"
-                type="text"
-                value="0"
-                onChange={() => console.log('input rxd')} />
-              <GhostSymbol> /mo </GhostSymbol>
+                <GhostSymbol> $ </GhostSymbol>
+                <HiddenInput
+                  name="hoaFees"
+                  type="text"
+                  value="0"
+                  onChange={() => console.log('input rxd')}
+                />
+                <GhostSymbol> /mo </GhostSymbol>
               </Box>
             </LabelWrap>
           </form>
@@ -37,7 +38,7 @@ const HOAFees = (props) => {
       <div> </div>
       )}
     </div>
-	)
-}
+  );
+};
 
 export default HOAFees;
