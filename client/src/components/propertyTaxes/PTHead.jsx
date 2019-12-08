@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 const PTHead = (props) => {
 
-  const { usdF, expand, CaratB, expanded, price } = props;
-  const moPropTax = (price * 0.0101) / 12;
+  const { propTax, usdF, expand, CaratB, expanded, price } = props;
 
   const Head = styled.div`
     font-size: 9px;
@@ -20,12 +19,14 @@ const PTHead = (props) => {
     margin-left: auto;
   `;
 
+  const taxPerMo = usdF((price * (propTax / 100)) / 12);
+
   return (
     <Flex onClick={() => expand('propertyTaxes')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> Property taxes </Head>
         <div>
-          {usdF(moPropTax)}
+          {taxPerMo}
           /mo
         </div>
       </div>

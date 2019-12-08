@@ -4,11 +4,12 @@ import HIHead from './HIHead.jsx';
 
 const HomeInsurance = (props) => {
 
-    const { usdF, Box, HiddenInput, GhostSymbol, LabelWrap, price, expand, CaratB, morInsVal, expanded } = props;
+    const { homeInsurance, handleChange, usdF, Box, HiddenInput, GhostSymbol, LabelWrap, price, expand, CaratB, morInsVal, expanded } = props;
 
     const Des = styled.div`
       font-size: 8px;
       font-weight: 300;
+      top-padding: 8px;
     `;
 
     return (
@@ -21,10 +22,11 @@ const HomeInsurance = (props) => {
                 <Box>
                   <GhostSymbol> % </GhostSymbol>
                   <HiddenInput
-                    name="homeInsurance"
+                    id="homeInsurance"
                     type="text"
-                    value="9,660"
-                    onChange={() => console.log('input rxd')} />
+                    value={homeInsurance}
+                    onChange={handleChange}
+                  />
                     <GhostSymbol> /year </GhostSymbol>
                 </Box>
               </LabelWrap>

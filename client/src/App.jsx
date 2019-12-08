@@ -20,6 +20,7 @@ class App extends React.Component {
       hoaFees: false,
       utilities: false,
       propTax: 1.01,
+      homeInsuranceRate: 
     };
     this.usdF = this.usdF.bind(this);
     this.percentConv = this.percentConv.bind(this);
@@ -118,7 +119,7 @@ class App extends React.Component {
     console.log('eti: ', event.target.id);
     let eti = event.target.id;
     if (eti === 'interest') {
-      let newDown = this.state.price * (event.target.value / 100)
+      let newDown = this.state.price * (event.target.value / 100);
       this.setState({
         down: newDown,
         [eti]: Number(event.target.value),
@@ -232,7 +233,7 @@ class App extends React.Component {
 
     const GhostSymbol = styled.span`
       color: rgba(200, 200, 200, 0.8);
-      font-size: 10px;
+      font-size: 8px;
       font-weight: 500;
       font-shadow: 1px rgba(211, 211, 211, 0.8)
       margin: 1px;
@@ -248,13 +249,13 @@ class App extends React.Component {
           <Mortgage LabelWrap={LabelWrap} Box={Box} updateMC={updateMC} morInsVal={morInsVal} expand={expand} expanded={mortgageInsurance} CaratB={CaratB} />
         </WhiteDiv>
         <GrayDiv>
-          <PropertyTaxes HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} propTax={propTax} price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} usdF={usdF} />
+          <PropertyTaxes handleChange={handleChange} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} propTax={propTax} price={price} expand={expand} expanded={propertyTaxes} CaratB={CaratB} usdF={usdF} />
         </GrayDiv>
         <WhiteDiv>
-          <HomeInsurance HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} usdF={usdF} />
+          <HomeInsurance handleChange={handleChange}  HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} expand={expand} expanded={homeInsurance} CaratB={CaratB} usdF={usdF} />
         </WhiteDiv>
         <GrayDiv>
-          <HOAFees HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} expand={expand} expanded={hoaFees} CaratB={CaratB} usdF={usdF} />
+          <HOAFees handleChange={handleChange} HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} expand={expand} expanded={hoaFees} CaratB={CaratB} usdF={usdF} />
         </GrayDiv>
         <WhiteDiv>
           <Utilities expand={expand} expanded={utilities} CaratB={CaratB} />
