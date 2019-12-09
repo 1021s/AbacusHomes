@@ -33,13 +33,13 @@ class App extends React.Component {
     this.expand = this.expand.bind(this);
     this.updateMC = this.updateMC.bind(this);
     this.flip = this.flip.bind(this);
+    this.getListing = this.getListing.bind(this);
   }
 
   componentDidMount() {
     const url = window.location.href;
-    const params = new URL(url).pathname;
-    const Listing_id = params.slice(1, params.length - 1);
-    this.getPrice();
+    const Listing_id = url.split('?');
+    this.getListing(Listing_id[1]);
     // this.unitTest();
   }
 
@@ -55,19 +55,16 @@ class App extends React.Component {
   // }
 
   // eslint-disable-next-line class-methods-use-this
-  getListing() {
-    fetch(`/api/listings/003`)
+  getListing(Listing_id) {
+    fetch(`/api/listings/${Listing_id}`)
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
       .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((err) => console.log('GET listing err: ', err));
-  }
-
-  getPrice() {
-    fetch('/api/pricing/')
-      .then((res) => res.json())
-      .then((data) => this.setState({
-        price: data[(Math.floor(Math.random() * 100))].price,
-      }))
+      .then((res) => this.setState({
+        price: res.price,
+      }, () => console.log('hi from ini setstate', this.state.price)))
 
       .then(() => this.setState({
         priceStr: this.usdF(this.state.price),
@@ -297,10 +294,6 @@ class App extends React.Component {
     return (
       <FontDiv>
         <Header monthly={monthly} usdF={usdF} />
-        <button
-          type="button"
-          onClick={this.getListing}
-        > GET LISTING </button>
         <GrayDiv>
           <Principal HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} expand={expand} expanded={principalAndInterest} updateMC={updateMC} CaratB={CaratB} />
         </GrayDiv>

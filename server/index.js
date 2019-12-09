@@ -22,7 +22,7 @@ app.route('/api/pricing/')
   });
 
 // app.route('/api/listings/:Listing_id')
-app.route(`/api/listings/003`)
+app.route(`/api/listings/:listing_id`)
   .get((req, res) => {
     console.log('hi from server listing GET', req.params);
     let priceData;
