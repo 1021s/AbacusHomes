@@ -4,9 +4,9 @@ const db = require('../db');
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist')));
+const PORT = process.env.PORT || 3004;
 
-const PORT = 3000;
+app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist')));
 
 app.route('/api/pricing/')
   .get((req, res) => {
@@ -15,8 +15,26 @@ app.route('/api/pricing/')
         console.log('Error with query: ', err);
         res.sendStatus(500);
       } else {
-        console.log('results of query: ', results);
+        // console.log('results of query: ', results);
         res.send(results);
+      }
+    });
+  });
+
+// app.route('/api/listings/:Listing_id')
+app.route(`/api/listings/:listing_id`)
+  .get((req, res) => {
+    console.log('hi from server listing GET', req.params);
+    let priceData;
+    let qryStr = `SELECT price FROM pricing WHERE Listing_id=003`;
+    db.conn.query(qryStr, (err, results) => {
+      if (err) {
+        console.log('Error with listing query: ', err);
+        res.sendStatus(500);
+      } else {
+        console.log('results of listing query: ', results);
+        console.log('results of q', results[0])
+        res.send(results[0]);
       }
     });
   });

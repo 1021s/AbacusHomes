@@ -1,16 +1,16 @@
 import { shallow, mount, render } from 'enzyme';
 import React from 'react';
-import HomePrice from '../client/src/components/principal/HomePrice.jsx';
-import App from '../client/src/App.jsx';
+import App from '../../client/src/App.jsx';
+import DownPayment from '../../client/src/components/principal/DownPayment.jsx';
 
-describe('HomePrice', () => {
+describe('DownPayment', () => {
 
   let wrApp; let app; let shallowApp; let wrapper;
   beforeEach(() => {
     wrApp = mount(<App />);
     app = wrApp.instance();
-    shallowApp = shallow(<HomePrice />);
-    wrapper = mount(<HomePrice handleSubmit={app.handleSubmit} />);
+    shallowApp = shallow(<DownPayment />);
+    wrapper = mount(<DownPayment handleSubmit={app.handleSubmit} />);
   });
 
   it('should render successfully', () => {
