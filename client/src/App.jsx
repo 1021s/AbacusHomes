@@ -7,6 +7,7 @@ import PropertyTaxes from './components/propertyTaxes/PropertyTaxes.jsx';
 import HomeInsurance from './components/homeInsurance/HomeInsurance.jsx';
 import HOAFees from './components/hoaFees/HOAFees.jsx';
 import Utilities from './components/utilities/Utilities.jsx';
+import Axios from 'axios'
 
 class App extends React.Component {
   constructor(props) {
@@ -35,6 +36,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    const url = window.location.href;
+    const params = new URL(url).pathname;
+    const Listing_id = params.slice(1, params.length - 1);
     this.getPrice();
     // this.unitTest();
   }
@@ -49,6 +53,14 @@ class App extends React.Component {
   //     downStr: '60,000',
   //   });
   // }
+
+  // eslint-disable-next-line class-methods-use-this
+  getListing() {
+    fetch(`/api/listings/003`)
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((err) => console.log('GET listing err: ', err));
+  }
 
   getPrice() {
     fetch('/api/pricing/')
@@ -285,6 +297,10 @@ class App extends React.Component {
     return (
       <FontDiv>
         <Header monthly={monthly} usdF={usdF} />
+        <button
+          type="button"
+          onClick={this.getListing}
+        > GET LISTING </button>
         <GrayDiv>
           <Principal HiddenInput={HiddenInput} GhostSymbol={GhostSymbol} LabelWrap={LabelWrap} Box={Box} price={price} monthly={monthly} usdF={usdF} priceStr={priceStr} down={down} interest={interest} downStr={downStr} handleChange={handleChange} handleSubmit={handleSubmit} expand={expand} expanded={principalAndInterest} updateMC={updateMC} CaratB={CaratB} />
         </GrayDiv>

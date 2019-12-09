@@ -1,11 +1,11 @@
 import { shallow, mount, render } from 'enzyme';
 import React from 'react';
-import Principal from '../client/src/components/principal/Principal.jsx';
-import PandI from '../client/src/components/principal/PandI.jsx';
-import HomePrice from '../client/src/components/principal/HomePrice.jsx';
-import DownPayment from '../client/src/components/principal/DownPayment.jsx';
-import LoanProgram from '../client/src/components/principal/LoanProgram.jsx';
-import App from '../client/src/App.jsx';
+import Principal from '../../client/src/components/principal/Principal.jsx';
+import PandI from '../../client/src/components/principal/PandI.jsx';
+import HomePrice from '../../client/src/components/principal/HomePrice.jsx';
+import DownPayment from '../../client/src/components/principal/DownPayment.jsx';
+import LoanProgram from '../../client/src/components/principal/LoanProgram.jsx';
+import App from '../../client/src/App.jsx';
 
 describe('Principal', () => {
 

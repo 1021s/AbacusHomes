@@ -33,17 +33,20 @@ const buildPackage = () => {
 
   conn.query('USE zobinHood', (err, results) => {
     if (err) console.log(err);
-    console.log('db zobinHood in use: ', results);
+    console.log('db zobinHood in use: ') 
+    // results);
   });
 
   conn.query(tableCreateStr, (err, results) => {
     if (err) console.log(err);
-    console.log('pricing table created: ', results);
+    console.log('pricing table created: ')
+    // results);
   });
 
   conn.query('TRUNCATE TABLE pricing', (err, results) => {
     if (err) console.log(err);
-    console.log('pricing table ready for new data...', results);
+    console.log('pricing table ready for new data...')
+    // results);
   });
 
   const dbSeed = () => {

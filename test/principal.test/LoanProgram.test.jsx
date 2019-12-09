@@ -1,6 +1,6 @@
 import { shallow, mount, render } from 'enzyme';
 import React from 'react';
-import LoanProgram from '../client/src/components/principal/LoanProgram.jsx';
+import LoanProgram from '../../client/src/components/principal/LoanProgram.jsx';
 
 describe('Loan program', () => {
 
