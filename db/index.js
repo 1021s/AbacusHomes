@@ -26,7 +26,7 @@ const tableCreateStr = `CREATE TABLE IF NOT EXISTS pricing (
 )`;
 
 const buildPackage = () => {
-  // db.query('CREATE DATABASE IF NOT EXISTS zobinHood', (err, results) => {
+  // conn.query('CREATE DATABASE IF NOT EXISTS zobinHood', (err, results) => {
   //   if (err) console.log(err);
   //   console.log('db created: ', results);
   // });
