@@ -22,12 +22,12 @@ app.route('/api/pricing/')
   });
 
 // app.route('/api/listings/:Listing_id')
-app.route(`/api/listings/:listing_id`)
+app.route(`/api/houseprices/:listing_id`)
   .get((req, res) => {
     console.log('hi from server listing GET', req.params);
     let priceData;
-    let qryStr = `SELECT price FROM pricing WHERE Listing_id=003`;
-    db.conn.query(qryStr, (err, results) => {
+    let qryStr = `SELECT price FROM pricing WHERE Listing_id=?`;
+    db.conn.query(qryStr, req.params.listing_id, (err, results) => {
       if (err) {
         console.log('Error with listing query: ', err);
         res.sendStatus(500);
