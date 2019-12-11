@@ -1,2 +1,7 @@
 node_modules
 npm-debug.log
+test/
+.gitignore
+scratch.txt
+db/createDB.txt
+package-lock.json
