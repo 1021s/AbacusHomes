@@ -3,9 +3,9 @@ const seedData = require('./seedData.js');
 
 const conn = mysql.createConnection({
   host     : '127.0.0.1',
-  user     : 'root',
+  user     : 'zob',
   database : 'zobinHood',
-  // password : 'seniortable',
+  password : 'seniortable',
 });
 
 conn.connect((err) => {

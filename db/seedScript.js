@@ -50,3 +50,4 @@ const buildPackage = () => {
 
 seedData.pricingArr;
 buildPackage();
+db.conn.end();
