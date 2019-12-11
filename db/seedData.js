@@ -1,5 +1,5 @@
 const faker = require('faker');
-const db = require('./index.js');
+// const db = require('./index.js');
 
 // '.seed(xxx)' ensures the same data is "randomly" generated each time
 // faker.seed(123);
