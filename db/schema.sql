@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS zobinHood;
+
 CREATE DATABASE IF NOT EXISTS zobinHood;
 
 USE zobinHood;

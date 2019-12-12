@@ -33,7 +33,7 @@ app.route(`/api/houseprices/:listing_id`)
         res.sendStatus(500);
       } else {
         console.log('results of listing query: ', results);
-        console.log('results of q', results[0])
+        console.log('results of q', results[0]);
         res.send(results[0]);
       }
     });
