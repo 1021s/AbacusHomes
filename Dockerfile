@@ -1,5 +1,5 @@
 # What image do you want to start building on?
-FROM node:8.16.2-alpine
+FROM node:8.16.2
 
 # Make a folder in your image where your app's source code can live
 RUN mkdir -p /src/app
@@ -17,4 +17,4 @@ RUN npm install
 EXPOSE 3004
 
 # How do you start your app?
-CMD [ "npm", "server" ]
+CMD [ "npm", "run", "server" ]
