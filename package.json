@@ -14,7 +14,7 @@
     "coverage": "jest --coverage",
     "build": "weback -d",
     "build-dev:": "webpack -d --watch",
-    "start": "nodemon server/index.js",
+    "start": "nodemon db/seedScript.js && server/index.js",
     "server": "node server",
     "seed": "node db/seedScript.js",
     "schema": "mysql -uroot < db/schema.sql"
