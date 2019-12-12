@@ -56,7 +56,7 @@ class App extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   getListing(Listing_id) {
-    fetch(`/api/listings/${Listing_id}`)
+    fetch(`/api/houseprices/${Listing_id}`)
       .then((res) => {
         console.log(res);
         return res;
