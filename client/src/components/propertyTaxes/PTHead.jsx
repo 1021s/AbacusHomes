@@ -6,9 +6,14 @@ const PTHead = (props) => {
   const { propTax, usdF, expand, CaratB, expanded, price } = props;
 
   const Head = styled.div`
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 600;
     text-shadow: 0px 1.2px 6px rgba(176,176,176,0.75);
+  `;
+
+  const SubH = styled.div`
+    font-size: 10px;
+    font-weight: 400;
   `;
 
   const Flex = styled.div`
@@ -25,10 +30,10 @@ const PTHead = (props) => {
     <Flex onClick={() => expand('propertyTaxes')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> Property taxes </Head>
-        <div>
+        <SubH>
           {taxPerMo}
           /mo
-        </div>
+        </SubH>
       </div>
       <Right>
         {expanded ? (

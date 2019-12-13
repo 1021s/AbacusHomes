@@ -223,13 +223,13 @@ class App extends React.Component {
       font-family: "Open Sans", Tahoma, Geneva, sans-serif;
       font-color: rgb(42, 42, 51);
       font-weight: 400;
-      font-size: 8px;
+      font-size: 9px;
       line-height: 16px;
       letter-spacing: 0px;
       text-transform: none;
       margin: 0px;
       border: .5px solid rgba(200, 200, 200, 0.4);
-      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+      ${'' /* box-shadow: 0px 3px 15px rgba(0,0,0,0.2); */}
     `;
 
     const GrayDiv = styled.div`
@@ -258,7 +258,7 @@ class App extends React.Component {
     `;
 
     const Footer = styled.div`
-      font-size: 6px;
+      font-size: 8px;
       font-weight: 100;
       margin-bottom: 1%;
       padding: 6px 6px 6px 10px;
@@ -287,14 +287,16 @@ class App extends React.Component {
       outline: none;
       width: 82%;
       font-weight: 300;
-      font-size: 8px;
+      font-size: 9px;
     `;
 
     const GhostSymbol = styled.span`
       color: rgba(200, 200, 200, 0.8);
-      font-size: 8px;
+      font-size: 9px;
       font-weight: 500;
-      font-shadow: 1px rgba(211, 211, 211, 0.8)
+      font-shadow: 1px rgba(211, 211, 211, 0.8);
+      padding-left: 3px;
+      padding-right: 1px;
       margin: 1px;
     `;
 

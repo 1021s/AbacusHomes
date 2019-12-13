@@ -7,9 +7,14 @@ const UHead = (props) => {
   const moPropTax = (price * 0.0101) / 12;
 
   const Head = styled.div`
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 600;
     text-shadow: 0px 1.2px 6px rgba(176,176,176,0.75);
+  `;
+
+  const SubH = styled.div`
+    font-size: 10px;
+    font-weight: 400;
   `;
 
   const Flex = styled.div`
@@ -23,7 +28,7 @@ const Right = styled.div`
   return (
     <Flex onClick={() => expand('utilities')} style={{ cursor: 'pointer' }}>
       <div>
-        <Head> Utilities </Head>
+        <SubH> Utilities </SubH>
         <div> {includeUtilities ? `$0/mo` : 'Not included'} </div>
       </div>
       <Right>

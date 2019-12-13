@@ -2,10 +2,10 @@ const mysql = require('mysql');
 const seedData = require('./seedData.js');
 
 const conn = mysql.createConnection({
-  host     : 'db',
+  host     : '127.0.0.1',
   user     : 'root',
   database : 'zobinHood',
-  password : 'seniortable',
+  // password : 'seniortable',
 });
 
 conn.connect((err) => {

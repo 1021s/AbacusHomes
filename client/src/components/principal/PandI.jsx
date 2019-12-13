@@ -7,9 +7,14 @@ const PandI = (props) => {
   const { CaratB, usdF, price, monthly, expand, expanded, pAndI } = props;
 
   const Head = styled.div`
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 600;
     text-shadow: 0px 1.2px 6px rgba(176,176,176,0.75);
+  `;
+
+  const SubH = styled.div`
+    font-size: 10px;
+    font-weight: 400;
   `;
 
   const Flex = styled.div`
@@ -33,10 +38,10 @@ const PandI = (props) => {
         <Head>
           Principal & Interest
         </Head>
-        <div>
+        <SubH>
           {usdF(pAndI)}
           /mo
-        </div>
+        </SubH>
       </div>
       <Right>
         {expanded ? (

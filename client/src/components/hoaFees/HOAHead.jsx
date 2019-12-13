@@ -6,9 +6,14 @@ const HOAHead = (props) => {
   const { hoaFeeRate, usdF, expand, CaratB, expanded } = props;
 
   const Head = styled.div`
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 600;
     text-shadow: 0px 1.2px 6px rgba(176,176,176,0.75);
+  `;
+
+  const SubH = styled.div`
+    font-size: 10px;
+    font-weight: 400;
   `;
 
   const Flex = styled.div`
@@ -23,7 +28,7 @@ const HOAHead = (props) => {
     <Flex onClick={() => expand('hoaFees')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> HOA fees </Head>
-        <div> {usdF(hoaFeeRate)}/mo </div>
+        <SubH> {usdF(hoaFeeRate)}/mo </SubH>
       </div>
       <Right>
         {expanded ? (

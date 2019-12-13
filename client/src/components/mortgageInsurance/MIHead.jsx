@@ -6,9 +6,14 @@ const MIHead = (props) => {
   const { expand, CaratB, morInsVal, includeInsurance, expanded } = props;
 
   const Head = styled.div`
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 600;
     text-shadow: 0px 1.2px 6px rgba(176,176,176,0.75);
+  `;
+
+  const SubH = styled.div`
+    font-size: 10px;
+    font-weight: 400;
   `;
 
   const Flex = styled.div`
@@ -23,7 +28,7 @@ const MIHead = (props) => {
     <Flex onClick={() => expand('mortgageInsurance')} style={{ cursor: 'pointer' }}>
       <div>
         <Head> Mortgage insurance </Head>
-        <div>{includeInsurance ? `$${morInsVal}/mo` : 'Not included'}</div>
+        <SubH>{includeInsurance ? `$${morInsVal}/mo` : 'Not included'}</SubH>
       </div>
       <Right>
         {expanded ? (
