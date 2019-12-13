@@ -14,7 +14,7 @@
     "coverage": "jest --coverage",
     "build": "weback -d",
     "build-dev:": "webpack -d --watch",
-    "start": "node db/seedScript.js && node server/index.js",
+    "start": "webpack -d && node db/seedScript.js && node server/index.js",
     "start-dev": "node db/seedScript.js && nodemon server/index.js",
     "server": "node server",
     "seed": "node db/seedScript.js",

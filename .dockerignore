@@ -5,3 +5,4 @@ test/
 scratch.txt
 db/createDB.txt
 package-lock.json
+client/dist/bundle.js
