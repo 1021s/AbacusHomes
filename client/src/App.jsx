@@ -58,13 +58,14 @@ class App extends React.Component {
   getListing(Listing_id) {
     fetch(`/api/houseprices/${Listing_id}`)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .then((res) => res.json())
       .then((res) => this.setState({
         price: res.price,
-      }, () => console.log('hi from ini setstate', this.state.price)))
+      }))
+      // , () => console.log('hi from ini setstate', this.state.price)))
 
       .then(() => this.setState({
         priceStr: this.usdF(this.state.price),
@@ -76,11 +77,13 @@ class App extends React.Component {
 
       .then(() => this.setState({
         morInsVal: Math.round(this.state.monthly * .05),
-      }, () => console.log('monthly before calc: ', this.state.monthly, this.moCalc)))
+      }))
+      // , () => console.log('monthly before calc: ', this.state.monthly, this.moCalc)))
 
       .then(() => this.setState({
         monthly: this.moCalc(),
-      }, () => console.log('monthly: ', this.state.monthly)))
+      }))
+      // , () => console.log('monthly: ', this.state.monthly)))
 
       .catch((err) => console.log('fetch catch engaged...', err));
   }
@@ -92,11 +95,11 @@ class App extends React.Component {
   }
 
   moCalc() {
-    console.log('monthly: ', this.state.monthly)
-    console.log('morInsVal: ', this.state.morInsVal)
-    console.log('propTax: ', this.state.propTax)
-    console.log('homeInsuranceRate: ', this.state.homeInsuranceRate)
-    console.log('hoaFeeRate: ', this.state.hoaFeeRate)
+    // console.log('monthly: ', this.state.monthly)
+    // console.log('morInsVal: ', this.state.morInsVal)
+    // console.log('propTax: ', this.state.propTax)
+    // console.log('homeInsuranceRate: ', this.state.homeInsuranceRate)
+    // console.log('hoaFeeRate: ', this.state.hoaFeeRate)
 
     let mo = this.state.monthly + this.state.morInsVal + (this.state.price * ((this.state.propTax / 100) / 12)) + this.state.hoaFeeRate;
       if (this.state.inclHomeIns === true) {
@@ -163,19 +166,23 @@ class App extends React.Component {
 
   handleChange(event) {
     event.preventDefault();
-    console.log('eti: ', event.target.id);
+    // console.log('eti: ', event.target.id);
     let eti = event.target.id;
     if (eti === 'interest') {
       let newDown = this.state.price * (event.target.value / 100);
       this.setState({
         down: newDown,
         [eti]: Number(event.target.value),
-      }, console.log('this.state.price: ', this.state.price));
+      }, 
+      // console.log('this.state.price: ', this.state.price)
+      );
     } else {
       this.setState({
         [eti]: Number(event.target.value),
         interest: +((event.target.value / this.state.price) * 100).toFixed(2),
-      }, console.log('this.state.price: ', this.state.price));
+      }
+      // , console.log('this.state.price: ', this.state.price)
+      );
     }
     this.updateMC();
   }
