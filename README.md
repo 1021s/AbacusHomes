@@ -47,6 +47,8 @@ localhost:3004
 Then...
 <img... gif 'tutorial' coming soon! />
 
+ - - - 
+
 ## Built With
  * ReactJS
  * styled-components
@@ -56,12 +58,14 @@ Then...
  * Faker.js
  * Webpack/Babel
 
+ - - - 
+
 ## Project Roadmap 
 
 While this version is standalone AbacusHomes was built intentionally following TDD and SOA principles to allow integration with other projects.  Here's a peek into that process: 
 
 #### Phase One:
-  Create the Abacus; a fully interactive client-side rendered micro-service containing the following user editable fields: 
+Create the Abacus; a fully interactive client-side rendered micro-service containing the following user editable fields: 
     * Principal & Interest
     * Mortgage insurance
     * Property taxes
@@ -75,11 +79,13 @@ While this version is standalone AbacusHomes was built intentionally following T
 #### Phase Three: 
  * Integrate AbacusHomes with 4 other microservices and serve up a full-functionality open source home purchasing web application.  [SEE THE PROXY PROJECT REPO HERE](https://github.com/1021s/Matthew-proxy)
 
+
  - - - 
 
-## Author
+
+### Author
  * Matthew Beckerleg - [github.com/itsOrD](github.com/itsOrD)
  
-## License
+### License
  * This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
  
