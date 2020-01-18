@@ -52,24 +52,25 @@ Then...
 
 While this version is standalone AbacusHomes was built intentionally following TDD and SOA principles to allow integration with other projects.  Here's a peek into that process: 
 
-### Phase One:
-Create the Abacus - a fully interactive microservice with client-side rendering containing the following user editable fields: 
-  * Principal & Interest
-  * Mortgage insurance
-  * Property taxes
-  * Home insurance
-  * HOA fees
-  * Utilities
+  #### Phase One:
+  Create the Abacus - a fully interactive microservice with client-side rendering containing the following user editable fields: 
+    * Principal & Interest
+    * Mortgage insurance
+    * Property taxes
+    * Home insurance
+    * HOA fees
+    * Utilities
 
-### Phase Two:
-Optimize the production bundle and host on S3. [Dockerize the Abacus](https://hub.docker.com/repository/docker/itsord/morehomes) and deploy on Amazon EC2 t2 micros.
+  #### Phase Two:
+  Optimize the production bundle and host on S3. [Dockerize the Abacus](https://hub.docker.com/repository/docker/itsord/morehomes) and deploy on Amazon EC2 t2 micros.
 
-### Phase Three: 
-Integrate AbacusHomes with 4 other microservices and serve up a full-functionality open source home purchasing web application.  [SEE THE PROXY PROJECT REPO HERE](https://github.com/1021s/Matthew-proxy)
+  #### Phase Three: 
+  Integrate AbacusHomes with 4 other microservices and serve up a full-functionality open source home purchasing web application.  [SEE THE PROXY PROJECT REPO HERE](https://github.com/1021s/Matthew-proxy)
 
+ - - - 
 
 ## Author
- * Matthew Beckerleg - github.com/itsOrD
+ * Matthew Beckerleg - (github.com/itsOrD)
  
 ## License
  * This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
