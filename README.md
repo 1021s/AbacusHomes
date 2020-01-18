@@ -13,12 +13,15 @@ To get AbacusHomes working on your machine you should...
 First, make sure you have:
 
 ` node.js`
+
 `  mySql installed and running`
+
 `  root user access to your machine`
 
 Then:
 
 `fork this repo`
+
 `clone it to your local machine`
 
 Make sure you:
