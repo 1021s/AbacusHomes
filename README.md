@@ -13,22 +13,21 @@ To get AbacusHomes working on your machine you should...
 First, make sure you have:
 ```
   node.js
-
   mySql installed and running
-
   root user access to your machine
 ```
 
 Then:
 ```
-fork this repo
-
-clone it to your local machine
+  fork this repo
+  clone it to your local machine
 ```
 
 Make sure you:
 ```
-either create mySql db named 'zobinHood' OR uncomment lines 29-32 in db/index.js (first few lines of buildPackage) for the first run
+  either create mySql db named 'zobinHood' 
+    OR 
+  uncomment lines 29-32 in db/index.js (first few lines of buildPackage) for the first run
 ```
 
 And **finally** we're ready to **get it running**:
@@ -63,10 +62,10 @@ Create the Abacus - a fully interactive microservice with client-side rendering 
   * Utilities
 
 ### Phase Two:
-Optimize the production bundle and host on S3. [https://hub.docker.com/repository/docker/itsord/morehomes](Dockerize the Abacus) and deploy on Amazon EC2 t2 micros.
+Optimize the production bundle and host on S3. [Dockerize the Abacus](https://hub.docker.com/repository/docker/itsord/morehomes) and deploy on Amazon EC2 t2 micros.
 
 ### Phase Three: 
-Integrate AbacusHomes with 4 other microservices and serve up a full-functionality open source home purchasing web application.  [https://github.com/1021s/Matthew-proxy](SEE THE PROXY PROJECT REPO HERE)
+Integrate AbacusHomes with 4 other microservices and serve up a full-functionality open source home purchasing web application.  [SEE THE PROXY PROJECT REPO HERE](https://github.com/1021s/Matthew-proxy)
 
 
 ## Author
