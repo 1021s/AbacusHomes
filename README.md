@@ -1,19 +1,48 @@
-# Matthew-service
-*Monthly Cost*
+# Abacus Homes
 
-This repository contains Matthew's module for the **Hack Reactor Senior Front End Capstone** project *(FEC)*; emulating a 'product page' from Zillow.  All work is original and from scratch using mySql, Webpack, Babel, and Javascript (React, Node, Express, StyledComponents etc).
+An abacus for calculating monthly home cost.
 
-# How to run the module: 
- * ensure you have a root user and a running mysql (or change the settings in db/index.js)
- * no need to run seed
- * either create mySql db named 'zobinHood' OR uncomment lines 29-32 in db/index.js (first few lines of buildPackage) for the first run
+The cost of owning a home is more than the mortgage.  So how can a potential home-owner safely and efficiently calculate the total impact to their monthly budget?  Why, with Abacus Homes of course!
 
- * server: npm run server
- * url: localhost:3004
+ * <img... gif coming soome! />
+
+## Start Here
+
+To get AbacusHomes working on your machine you should... 
+
+First, make sure you have:
+` node.js
+  mySql installed and running
+  root user access to your machine`
+
+Then:
+`fork this repo
+clone it to your local machine`
+
+Make sure you:
+`either create mySql db named 'zobinHood' OR uncomment lines 29-32 in db/index.js (first few lines of buildPackage) for the first run`
+
+And **finally** we're ready to **get it running**:
+
+*Starts the server & 'runs the code'* 
+ `npm run server`
+ 
+ 
+## Using the Abacus
+
+Navigate to:
+`localhost:3004`
+
+Then...
+<img... gif 'tutorial' coming soon! />
 
 
-# Phase One: 
-  Create a custom "Monthly Cost" stateful module following TDD and service-oriented architecture principles containing the following inner components (each containing their own child-components): 
+## Project Roadmap 
+
+While this version is standalone AbacusHomes was built intentionally following TDD and SOA principles to allow integration with other projects.  Here's a peek into that process: 
+
+### Phase One:
+Create the Abacus - a fully interactive microservice with client-side rendering containing the following user editable fields: 
   * Principal & Interest
   * Mortgage insurance
   * Property taxes
@@ -21,8 +50,16 @@ This repository contains Matthew's module for the **Hack Reactor Senior Front En
   * HOA fees
   * Utilities
 
-# Phase Two: 
-  Integrate components and styling with group members modules via a Proxy/App server.
+### Phase Two:
+Optimize the production bundle and host on S3. (https://hub.docker.com/repository/docker/itsord/morehomes Dockerize the Abacus) and deploy on Amazon EC2 t2 micros.
 
-# Phase Three: 
-  Deploy on AWS or Heroku or...
+### Phase Three: 
+Integrate AbacusHomes with 4 other microservices and serve up a full-functionality open source home purchasing web application.  (https://github.com/1021s/Matthew-proxy SEE THE PROXY PROJECT REPO HERE)
+
+
+## Author
+ * Matthew Beckerleg - github.com/itsOrD
+ 
+## License
+ * This project is licensed under the MIT License - see the (https://gist.github.com/PurpleBooth/LICENSE.md LICENSE.md) file for details.
+ 
