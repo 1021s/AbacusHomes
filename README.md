@@ -11,35 +11,39 @@ The cost of owning a home is more than the mortgage.  So how can a potential hom
 To get AbacusHomes working on your machine you should... 
 
 First, make sure you have:
+```
+  node.js
 
-` node.js`
+  mySql installed and running
 
-`  mySql installed and running`
-
-`  root user access to your machine`
+  root user access to your machine
+```
 
 Then:
+```
+fork this repo
 
-`fork this repo`
-
-`clone it to your local machine`
+clone it to your local machine
+```
 
 Make sure you:
-
-`either create mySql db named 'zobinHood' OR uncomment lines 29-32 in db/index.js (first few lines of buildPackage) for the first run`
+```
+either create mySql db named 'zobinHood' OR uncomment lines 29-32 in db/index.js (first few lines of buildPackage) for the first run
+```
 
 And **finally** we're ready to **get it running**:
 
 *Starts the server & 'runs the code'* 
-
- `npm run server`
- 
+```
+ npm run server
+``` 
  
 ## Using the Abacus
 
 Navigate to:
-
-`localhost:3004`
+```
+localhost:3004
+```
 
 Then...
 <img... gif 'tutorial' coming soon! />
@@ -59,15 +63,15 @@ Create the Abacus - a fully interactive microservice with client-side rendering 
   * Utilities
 
 ### Phase Two:
-Optimize the production bundle and host on S3. (https://hub.docker.com/repository/docker/itsord/morehomes Dockerize the Abacus) and deploy on Amazon EC2 t2 micros.
+Optimize the production bundle and host on S3. [https://hub.docker.com/repository/docker/itsord/morehomes](Dockerize the Abacus) and deploy on Amazon EC2 t2 micros.
 
 ### Phase Three: 
-Integrate AbacusHomes with 4 other microservices and serve up a full-functionality open source home purchasing web application.  (https://github.com/1021s/Matthew-proxy SEE THE PROXY PROJECT REPO HERE)
+Integrate AbacusHomes with 4 other microservices and serve up a full-functionality open source home purchasing web application.  [https://github.com/1021s/Matthew-proxy](SEE THE PROXY PROJECT REPO HERE)
 
 
 ## Author
  * Matthew Beckerleg - github.com/itsOrD
  
 ## License
- * This project is licensed under the MIT License - see the (https://gist.github.com/PurpleBooth/LICENSE.md LICENSE.md) file for details.
+ * This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
  
