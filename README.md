@@ -11,26 +11,31 @@ The cost of owning a home is more than the mortgage.  So how can a potential hom
 To get AbacusHomes working on your machine you should... 
 
 First, make sure you have:
-` node.js
-  mySql installed and running
-  root user access to your machine`
+
+` node.js`
+`  mySql installed and running`
+`  root user access to your machine`
 
 Then:
-`fork this repo
-clone it to your local machine`
+
+`fork this repo`
+`clone it to your local machine`
 
 Make sure you:
+
 `either create mySql db named 'zobinHood' OR uncomment lines 29-32 in db/index.js (first few lines of buildPackage) for the first run`
 
 And **finally** we're ready to **get it running**:
 
 *Starts the server & 'runs the code'* 
+
  `npm run server`
  
  
 ## Using the Abacus
 
 Navigate to:
+
 `localhost:3004`
 
 Then...
