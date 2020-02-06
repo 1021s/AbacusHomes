@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["mc"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
 /***/ "./client/src/App.jsx":
 /*!****************************!*\
@@ -300,4 +300,4 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ })
 
-},[["./client/src/index.js","vendors"]]]);
+},[["./client/src/index.js","vendor"]]]);

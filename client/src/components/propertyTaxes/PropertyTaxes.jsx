@@ -4,7 +4,9 @@ import PTHead from './PTHead.jsx';
 
 const PropertyTaxes = (props) => {
 
-  const { handleChange, usdF, Box, HiddenInput, GhostSymbol, LabelWrap, propTax, price, expand, CaratB, morInsVal, expanded } = props;
+  const {
+    handleChange, usdF, Box, HiddenInput, GhostSymbol, LabelWrap, propTax, price, expand, CaratB, morInsVal, expanded
+  } = props;
 
   const Des = styled.div`
     font-size: 8px;
@@ -13,9 +15,6 @@ const PropertyTaxes = (props) => {
 
   const Col = styled.div`
     display: grid;
-    ${'' /* grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2px;
-    grid-auto-rows: minmax(1px, auto); */}
   `;
 
   const C1a = styled.div`

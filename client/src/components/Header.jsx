@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Header = (props) => {
-  const { usdF, monthly } = props;
+  const {
+    usdF, monthly
+  } = props;
 
   const GreenCost = styled.h4`
     text-align: center;

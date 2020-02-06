@@ -2,19 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const DownPayment = (props) => {
-  const { LabelWrap, usdF, price, monthly, down, downStr, interest, Box, HiddenInput, GhostSymbol, updateMC, handleChange } = props;
+  const {
+    LabelWrap, down, interest, Box, HiddenInput, GhostSymbol, handleChange
+  } = props;
 
   const Flox = styled.div`
     display: flex;
-  `;
-
-  const LineUp = styled.div`
-    flex: 0 0 auto;
-  `;
-
-  const Col = styled.div`
-    display: grid;
-    font-weight: 600;
   `;
 
   const C1a = styled.div`
@@ -45,7 +38,6 @@ const DownPayment = (props) => {
       <div style={{ fontWeight: 600 }}>
         Down Payment
       </div>
-        {/* invalid when non-int are entered, or when higher than total homeprice */}
       <Flox>
         <C1a>
         <form>
@@ -55,7 +47,6 @@ const DownPayment = (props) => {
               <HiddenInput
                 type="text"
                 id="down"
-                // value={usdF(down, 'no')}
                 value={down}
                 onChange={handleChange}
               />
@@ -67,7 +58,6 @@ const DownPayment = (props) => {
         <form>
           <LabelWrap>
             <Box>
-              {/* invalid when non pos int, or greater than 100 */}
               <HiddenInput
                 type="text"
                 id="interest"

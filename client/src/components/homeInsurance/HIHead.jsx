@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 const HIHead = (props) => {
 
-  const { homeInsuranceRate, usdF, expand, CaratB, expanded } = props;
+  const {
+    homeInsuranceRate, usdF, expand, CaratB, expanded
+  } = props;
 
   const Head = styled.div`
     font-size: 9px;

@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 const PTHead = (props) => {
 
-  const { propTax, usdF, expand, CaratB, expanded, price } = props;
+  const {
+    propTax, usdF, expand, CaratB, expanded, price
+  } = props;
 
   const Head = styled.div`
     font-size: 9px;

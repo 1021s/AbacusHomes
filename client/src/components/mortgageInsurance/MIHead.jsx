@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 const MIHead = (props) => {
 
-  const { expand, CaratB, morInsVal, includeInsurance, expanded } = props;
+  const {
+    expand, CaratB, morInsVal, includeInsurance, expanded
+  } = props;
 
   const Head = styled.div`
     font-size: 9px;

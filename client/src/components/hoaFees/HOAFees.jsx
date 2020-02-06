@@ -4,7 +4,9 @@ import HOAHead from './HOAHead.jsx';
 
 const HOAFees = (props) => {
 
-  const { handleChange, hoaFeeRate, usdF, Box, HiddenInput, GhostSymbol, LabelWrap, expand, expanded, CaratB } = props;
+  const {
+    handleChange, hoaFeeRate, usdF, Box, HiddenInput, GhostSymbol, LabelWrap, expand, expanded, CaratB
+  } = props;
 
   const Des = styled.div`
     font-size: 8px;

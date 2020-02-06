@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const LoanProgram = (props) => {
-  const { CaratB, LabelWrap, handleSelect, loan, Box, HiddenInput, GhostSymbol, handleChange } = props;
+  const {
+    LabelWrap, handleSelect, loan, Box, HiddenInput, GhostSymbol
+  } = props;
 
   const Linky = styled.a`
     text-decoration: none;
@@ -22,11 +24,6 @@ const LoanProgram = (props) => {
 
   const Flox = styled.div`
     display: flex;
-  `;
-
-  const CustImg = styled.img`
-    margin-left: auto;
-    padding: 14px;
   `;
 
   const Col = styled.div`
@@ -70,15 +67,12 @@ const LoanProgram = (props) => {
                 <option value="3.563">15-year fixed</option>
                 <option value="3.134">5/1 ARM</option>
               </Selw>
-                {/* <CustImg src="https://img.icons8.com/small/16/1277e1/expand-arrow.png" alt="v" /> */}
             </Box>
           </LabelWrap>
         </form>
         </Flox>
       </C1b>
 
-          {/* later functionality: invalid with non-pos-int or, >100 
-          three decimal points...rounded */}
           <C2a> Interest Rate </C2a>
           <C2b>
             <form>
@@ -95,7 +89,6 @@ const LoanProgram = (props) => {
               </LabelWrap>
             </form>
           </C2b>
-      
 
       <div>
         {loan === "3.134" &&

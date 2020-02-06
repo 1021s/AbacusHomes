@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
 const db = require('../db');
+const compression = require('compression')
 
 const app = express();
+app.use(compression());
 
 const PORT = process.env.PORT || 3004;
 

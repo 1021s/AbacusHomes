@@ -5,7 +5,7 @@ import CheckedBox from './CheckedBox.jsx';
 
 class Mortgage extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       includeInsurance: false,
     };
@@ -19,29 +19,19 @@ class Mortgage extends React.Component {
     this.setState({
       [name]: value,
     });
-    // () => this.props.flip());
-    // , () => this.props.updateMC(value, 'mortgageInsurance')
   }
 
   render() {
     const { includeInsurance } = this.state;
-    const { handleInputChange } = this;
-    const { LabelWrap, Box,expand, CaratB, morInsVal, expanded } = this.props;
-
-    // const Flox = styled.div`
-    //   display: flex;
-    //   flex-wrap: wrap;
-    //   flex-direction: column;
-    //   align-content: space-between;
-    //   align-items: flex-start;
-    // `;
+    const {
+      expand, CaratB, morInsVal, expanded
+    } = this.props;
 
     const Col = styled.div`
       display: grid;
       width: 100%;
       grid-template-columns: 14px 1fr;
       font-weight: 600;
-      ${'' /* align-items: center; */}
     `;
 
     const C1a = styled.div`
@@ -64,14 +54,11 @@ class Mortgage extends React.Component {
     `;
 
     const HiddenCB = styled.input`
-      ${'' /* display: flex; */}
       opacity: 0;
       margin: 0px;
     `;
 
     const CustomCB = styled.div`
-      ${'' /* position: absolute; */}
-      ${'' /* display: flex; */}
       margin: 0px;
       height: 8px;
       width: 8px;
@@ -81,7 +68,6 @@ class Mortgage extends React.Component {
         opacity: 100;
         border-color: rgb(0, 106, 255);
         box-shadow: 0 4px 8px 0 rgba(0, 106, 255, 0.3), 0 6px 20px 0 rgba(0, 106, 255, 0.25);
-        ${'' /* 1px 1px 1px rgb(0, 106, 255); */}
       }
     `;
 
@@ -99,7 +85,6 @@ class Mortgage extends React.Component {
     `;
 
     const Spacer = styled.span`
-      ${'' /* display: flex; */}
     `;
 
     return (
@@ -161,7 +146,7 @@ class Mortgage extends React.Component {
           <div> </div>
         )}
       </div>
-    )
+    );
   }
 }
 

@@ -150,7 +150,7 @@ class Utilities extends React.Component {
           <div> </div>
         )}
       </div>
-    )
+    );
   }
 }
 

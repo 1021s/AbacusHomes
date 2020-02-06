@@ -29,5 +29,4 @@ const CheckedBox = () => (
   </div>
 );
 
-export default CheckedBox
-;
+export default CheckedBox;
