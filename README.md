@@ -4,7 +4,7 @@ An abacus for calculating monthly home cost.
 
 The cost of owning a home is more than the mortgage.  So how can a potential home-owner safely and efficiently calculate the total impact to their monthly budget?  Why, with Abacus Homes of course!
 
- * <img... gif coming soome! />
+![](./20200206_082754.gif)
 
 ## Start Here
 
