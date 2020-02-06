@@ -1,5 +1,5 @@
 {
-  "name": "matthew-service",
+  "name": "AbacusHomes",
   "jest": {
     "automock": false,
     "setupFilesAfterEnv": [
@@ -22,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1021s/Matthew-service.git"
+    "url": "git+https://github.com/1021s/AbacusHomes.git"
   },
   "author": "itsOrD",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/1021s/Matthew-service/issues"
+    "url": "https://github.com/1021s/AbacusHomes/issues"
   },
-  "homepage": "https://github.com/1021s/Matthew-service#readme",
+  "homepage": "https://github.com/1021s/AbacusHomes#readme",
   "devDependencies": {
     "axios": "^0.19.0",
     "babel-plugin-styled-components": "^1.10.6",
